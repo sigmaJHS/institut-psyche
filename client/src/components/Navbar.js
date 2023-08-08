@@ -1,7 +1,9 @@
+import { NavLink } from 'react-router-dom';
+import { AiOutlinePhone, AiOutlineWhatsApp } from 'react-icons/ai'
+
 import style from './Navbar.module.scss'
 
 import { useState } from 'react'
-import { AiOutlinePhone, AiOutlineWhatsApp } from 'react-icons/ai'
 
 function Navbar(props){
   const [isExpanded, setIsExpanded] = useState(false);
@@ -35,7 +37,11 @@ function Navbar(props){
                 props.routes.map(
                   function (route, key) {
                     return (
-                      <li key={key} className={style['nav-item']}>{route.name}</li>
+                      <li key={key} className={style['nav-item']}>
+                        <NavLink to={route.path} onClick={() => {setIsExpanded(false)}}>
+                          {route.name}
+                        </NavLink>
+                      </li>
                     );
                   }
                 )

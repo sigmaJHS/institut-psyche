@@ -87,6 +87,15 @@
     padding: 10px 0;
     width: 100%;
     border-bottom: 1px solid $low-emphasys-text;
+
+    a {
+      text-decoration: none;
+      color: $high-emphasys-text;
+
+      &[class="active"] {
+        font-weight: bold;
+      }
+    }
   }
 }
 

@@ -12,13 +12,24 @@ function App() {
   
   const navigableRoutes = [
     {
-      name: 'Home'
+      name: 'Home',
+      path: '/'
     },
     {
-      name: 'Sobre'
+      name: 'Sobre',
+      path: '/sobre'
     },
     {
-      name: 'Contato'
+      name: 'Publicações',
+      path: '/publicacoes'
+    },
+    {
+      name: 'Cursos',
+      path: '/cursos'
+    },
+    {
+      name: 'Contato',
+      path: '/contato'
     }
   ];
 
