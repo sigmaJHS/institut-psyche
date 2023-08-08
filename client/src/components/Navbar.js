@@ -1,6 +1,7 @@
 import style from './Navbar.module.scss'
 
 import { useState } from 'react'
+import { AiOutlinePhone, AiOutlineWhatsApp } from 'react-icons/ai'
 
 function Navbar(){
   const [isExpanded, setIsExpanded] = useState(false);
@@ -52,6 +53,20 @@ function Navbar(){
                 )
               }
             </ul>
+            <div className={style['contact-info']}>
+              <a
+                className={`${style['contact-button']} ${style['altered']}`}
+                href='tel:00000000000'
+              >
+                <AiOutlinePhone className={style['icon']} />(00) 00000-0000
+              </a>
+              <a
+                className={`${style['contact-button']} ${style['regular']}`}
+                href='tel:00000000000'
+              >
+                <AiOutlineWhatsApp className={style['icon']} />(00) 00000-0000
+              </a>
+            </div>
           </div>
       </div>
     </div>
