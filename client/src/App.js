@@ -13,23 +13,28 @@ function App() {
   const navigableRoutes = [
     {
       name: 'Home',
-      path: '/'
+      path: '/',
+      view: Home
     },
     {
       name: 'Sobre',
-      path: '/sobre'
+      path: '/sobre',
+      view: About
     },
     {
       name: 'Publicações',
-      path: '/publicacoes'
+      path: '/publicacoes',
+      view: Publications
     },
     {
       name: 'Cursos',
-      path: '/cursos'
+      path: '/cursos',
+      view: Courses
     },
     {
       name: 'Contato',
-      path: '/contato'
+      path: '/contato',
+      view: Contact
     }
   ];
 
@@ -37,11 +42,18 @@ function App() {
     <BrowserRouter basename="/">
       <Navbar routes={navigableRoutes} />
       <Routes>
-        <Route path="/" element={ <Home /> } />
-        <Route path="/sobre" element={ <About /> } />
-        <Route path="/publicacoes" element={ <Publications /> } />
-        <Route path="/cursos" element={ <Courses /> } />
-        <Route path="/contato" element={ <Contact /> } />
+        {
+          navigableRoutes.map(
+            function (route, key) {
+              return (
+                <Route
+                  key={key}
+                  path={route.path}
+                  element={ <route.view /> } />
+              );
+            }
+          )
+        }
       </Routes>
     </BrowserRouter>
   );
