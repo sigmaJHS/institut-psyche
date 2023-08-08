@@ -9,9 +9,22 @@ import Courses from './views/Courses'
 import Contact from './views/Contact'
 
 function App() {
+  
+  const navigableRoutes = [
+    {
+      name: 'Home'
+    },
+    {
+      name: 'Sobre'
+    },
+    {
+      name: 'Contato'
+    }
+  ];
+
   return (
     <BrowserRouter basename="/">
-      <Navbar />
+      <Navbar routes={navigableRoutes} />
       <Routes>
         <Route path="/" element={ <Home /> } />
         <Route path="/sobre" element={ <About /> } />

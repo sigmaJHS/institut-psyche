@@ -3,20 +3,8 @@ import style from './Navbar.module.scss'
 import { useState } from 'react'
 import { AiOutlinePhone, AiOutlineWhatsApp } from 'react-icons/ai'
 
-function Navbar(){
+function Navbar(props){
   const [isExpanded, setIsExpanded] = useState(false);
-
-  const navigableRoutes = [
-    {
-      name: 'Home'
-    },
-    {
-      name: 'Sobre'
-    },
-    {
-      name: 'Contato'
-    }
-  ]
 
   return (
     <div className={style['navbar']}>
@@ -44,7 +32,7 @@ function Navbar(){
           <div className={style['expanded-menu-inner']}>
             <ul className={style['navigation']}>
               {
-                navigableRoutes.map(
+                props.routes.map(
                   function (route, key) {
                     return (
                       <li key={key} className={style['nav-item']}>{route.name}</li>
