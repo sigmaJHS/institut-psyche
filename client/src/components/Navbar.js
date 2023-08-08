@@ -44,9 +44,9 @@ function Navbar(){
             <ul className={style['navigation']}>
               {
                 navigableRoutes.map(
-                  function (route) {
+                  function (route, key) {
                     return (
-                      <li className={style['nav-item']}>{route.name}</li>
+                      <li key={key} className={style['nav-item']}>{route.name}</li>
                     );
                   }
                 )
