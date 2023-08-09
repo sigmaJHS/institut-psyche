@@ -1,9 +1,10 @@
 import { NavLink } from 'react-router-dom';
 import { AiOutlinePhone, AiOutlineWhatsApp } from 'react-icons/ai'
 
-import style from './Navbar.module.scss'
-
 import { useState } from 'react'
+
+import style from './Navbar.module.scss'
+import logo from './../assets/institut-psyche.png'
 
 function Navbar(props){
   const [isExpanded, setIsExpanded] = useState(false);
@@ -15,7 +16,11 @@ function Navbar(props){
           className={style['brand']}
           expanded={isExpanded ? 'true' : 'false'}
         >
-          <img src="" alt="Institut Psyché" />
+          <NavLink to='/' onClick={() => {setIsExpanded(false)}}>
+            <img
+              src={logo}
+              alt="Institut Psyché" />
+          </NavLink>
         </div>
         <button
           className={style['toggle']}
