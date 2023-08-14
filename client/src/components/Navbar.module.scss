@@ -1,6 +1,9 @@
 @import './../style/colors.scss';
 @import './../style/breakpoints.scss';
 
+//  breakpoint for the transition between mobile and desktop versions of the navbar
+$breakpoint: md;
+
 .navbar {
   width: 100%;
   height: 80px;
@@ -10,18 +13,23 @@
   @include breakpoint-min(xs) {
     height: 100px;
   }
+
+  @include breakpoint-min(md) {
+    height: 120px;
+  }
 }
 
 .brand {
-  &[expanded="true"] {
-    z-index: 3;
-  }
-
   img {
     width: 150px;
   
     @include breakpoint-min(xs) {
       width: 200px;
+    }
+  }
+  @include breakpoint-max (md) {
+    &[expanded="true"] {
+      z-index: 3;
     }
   }
 }
@@ -34,10 +42,23 @@
   background-color: transparent;
   text-align: center;
 
+  &[expanded="true"] {
+    background-color: $primary;
+    z-index: 3;
+
+    .line{
+      background-color: $white;
+    }
+  }
+
   @include breakpoint-min(xs) {
     width: 40px;
     height: 40px;
     margin-right: 15px;
+  }
+
+  @include breakpoint-min(md) {
+    display: none;
   }
 
   .line{
@@ -50,120 +71,136 @@
       width: 18px;
     }
   }
+}
 
-  &[expanded="true"] {
-    background-color: $primary;
-    z-index: 3;
-
-    .line{
-      background-color: $white;
+.menu {
+  @include breakpoint-max($breakpoint) {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 30px;
+    margin: 0;
+    transition: 0.2s;
+    background: $darker-white;
+    z-index: -1;
+    opacity: 0;
+    
+    &[expanded="true"] {
+      z-index: 2;
+      opacity: 1;
+      transition: 0.8s;
     }
   }
-}
-
-.expanded-menu {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding: 0 30px;
-  transition: 0.2s;
-  background: $darker-white;
-  z-index: -1;
-  opacity: 0;
-
-  &[expanded="true"] {
-    z-index: 2;
-    opacity: 1;
-    transition: 0.8s;
+    
+  @include breakpoint-min ($breakpoint) {
+    display: inline-block;
   }
-}
 
-.expanded-menu-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height:100%;
-}
+  .navigation {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  
+    @include breakpoint-max ($breakpoint) {
+      width: 100%;
+    }
+    
+    @include breakpoint-min ($breakpoint) {
+      display: inline-block;
+      margin-right: 25px;
+    }
+  
+    .nav-item {
+      font-size: 16px;
+  
+      @include breakpoint-max ($breakpoint) {
+        padding: 10px 0;
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid $low-emphasys-text;
+      }
 
-.navigation {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  width: 100%;
+      @include breakpoint-min ($breakpoint) {
+        display: inline-block;
 
-  .nav-item {
-    font-size: 16px;
-    text-align: center;
-    padding: 10px 0;
-    width: 100%;
-    border-bottom: 1px solid $low-emphasys-text;
-
-    a {
-      text-decoration: none;
-      color: $high-emphasys-text;
-
-      &[class="active"] {
-        font-weight: bold;
+        &:not(first-of-type) {
+          margin-left: 18px;
+        }
+      }
+  
+      a {
+        text-decoration: none;
+        color: $high-emphasys-text;
+  
+        &[class="active"] {
+          font-weight: bold;
+        }
       }
     }
   }
-}
-
-.contact-info {
-  position: absolute;
-  bottom: 15px;
-  right: 0;
-  left: 0;
-}
-
-.contact-button {
-  width: 100%;
-  display: block;
-  padding: 5px 0;
-  font-size: 14px;
-  border: 2px solid $primary;
-  text-align: center;
-  border-radius: 5px;
-  text-decoration: none;
-  transition: 0.4s;
-  line-height: 1;
-
-  &:not(:first-child) {
-    margin-top: 5px;
-  }
-
-  &.regular {
-    background-color: $primary;
-    color: $white;
-
-    &:hover,
-    &:focus {
-      background-color: transparent;
-      color: $high-emphasys-text;
+  
+  .contact-info {
+    @include breakpoint-max ($breakpoint) {
+      position: fixed;
+      bottom: 15px;
+      right: 30px;
+      left: 30px;
     }
-  }
 
-  &.altered {
-    background-color: transparent;
-    color: $high-emphasys-text;
+    @include breakpoint-min ($breakpoint) {
+      display: inline-block;
 
-    &:hover,
-    &:focus {
-      background-color: $primary;
-      color: $white;
     }
-  }
-
-  .icon { 
-    vertical-align: middle;
-    margin-right: 5px;
-    font-size: 18px;
+  
+    .contact-button {
+      width: 100%;
+      display: block;
+      padding: 5px 0;
+      font-size: 14px;
+      border: 2px solid $primary;
+      text-align: center;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: 0.4s;
+      line-height: 1;
+    
+      &:not(:first-child) {
+        margin-top: 5px;
+      }
+    
+      &.regular {
+        background-color: $primary;
+        color: $white;
+    
+        &:hover,
+        &:focus {
+          background-color: transparent;
+          color: $high-emphasys-text;
+        }
+      }
+    
+      &.altered {
+        background-color: transparent;
+        color: $high-emphasys-text;
+    
+        &:hover,
+        &:focus {
+          background-color: $primary;
+          color: $white;
+        }
+      }
+    
+      .icon { 
+        vertical-align: middle;
+        margin-right: 5px;
+        font-size: 18px;
+      }
+    }
   }
 }

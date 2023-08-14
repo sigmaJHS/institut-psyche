@@ -1,7 +1,7 @@
 @function breakpoint-width($name) {
   @return map-get(
     (
-      xs: 360px,
+      xs: 320px,
       sm: 576px,
       md: 768px,
       lg: 992px,
@@ -13,17 +13,15 @@
 }
 
 @mixin breakpoint-min($name) {
-  $width: breakpoint-width($name);
+  $width: calc(breakpoint-width($name) + 1px);
   @media (min-width: $width) {
     @content;
   }
 }
 
 @mixin breakpoint-max($name) {
-  @if($name != xs) {
-    $width: calc(breakpoint-width($name) - 1px);
-    @media (max-width: $width) {
-      @content;
-    }
+  $width: breakpoint-width($name);
+  @media (max-width: $width) {
+    @content;
   }
 }
