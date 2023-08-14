@@ -1,7 +1,9 @@
+import Introduction from './../components/Introduction.js'
+
 export default function Home(){
   return(
     <div>
-    Home
+      <Introduction />
     </div>
   )
 }
