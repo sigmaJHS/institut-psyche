@@ -113,7 +113,9 @@ $breakpoint: md;
     
     @include breakpoint-min ($breakpoint) {
       display: inline-block;
-      margin-right: 25px;
+      margin-right: 50px;
+      margin-top: 20px;
+      vertical-align: middle;
     }
   
     .nav-item {
@@ -136,10 +138,26 @@ $breakpoint: md;
   
       a {
         text-decoration: none;
-        color: $high-emphasys-text;
   
         &[class="active"] {
           font-weight: bold;
+        }
+
+        @include breakpoint-max ($breakpoint) {
+          color: $high-emphasys-text;
+          font-size: 16px;
+        }
+        
+        @include breakpoint-min ($breakpoint) {
+          color: $low-emphasys-text;
+          font-size: 14px;
+  
+          &[class="active"],
+          &:hover,
+          &:focus {
+            color: $high-emphasys-text;
+            text-decoration: underline;
+          }
         }
       }
     }
@@ -159,21 +177,21 @@ $breakpoint: md;
     @include breakpoint-min ($breakpoint) {
       display: inline-block;
       position: relative;
+      vertical-align: middle;
     }
 
     .contact-text {
       display: block;
+      margin-bottom: 5px;
 
       @include breakpoint-max ($breakpoint) {
         font-size: 16px;
         color: $high-emphasys-text;
-        margin-bottom: 10px;
       }
   
       @include breakpoint-min ($breakpoint) {
         font-size: 14px;
         color: $low-emphasys-text;
-        margin-bottom: 5px;
       }
     }
 
@@ -188,8 +206,8 @@ $breakpoint: md;
         transition: 0.1s;
 
         @include breakpoint-max ($breakpoint) {
-          height: 35px;
-          width: 35px;
+          height: 30px;
+          width: 30px;
 
           &:not(:first-child) {
             margin-left: 15px;
@@ -197,8 +215,8 @@ $breakpoint: md;
         }
     
         @include breakpoint-min ($breakpoint) {
-          height: 30px;
-          width: 30px;
+          height: 25px;
+          width: 25px;
 
           &:not(:first-child) {
             margin-left: 10px;
@@ -231,11 +249,11 @@ $breakpoint: md;
           height: 100%;
 
           @include breakpoint-max ($breakpoint) {
-            font-size: 20px;
+            font-size: 16px;
           }
           
           @include breakpoint-min ($breakpoint) {
-            font-size: 16px;
+            font-size: 14px;
           }
         }
       }
