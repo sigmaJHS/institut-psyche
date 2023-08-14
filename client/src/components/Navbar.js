@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { AiOutlinePhone, AiOutlineWhatsApp } from 'react-icons/ai'
+import { FaPhoneAlt, FaWhatsapp, FaRegCopy } from 'react-icons/fa'
 
 import { useState } from 'react'
 
@@ -51,18 +51,27 @@ function Navbar(props){
             }
           </ul>
           <div className={style['contact-info']}>
-            <a
-              className={`${style['contact-button']} ${style['altered']}`}
-              href='tel:00000000000'
-            >
-              <AiOutlinePhone className={style['icon']} />(00) 00000-0000
-            </a>
-            <a
-              className={`${style['contact-button']} ${style['regular']}`}
-              href='tel:00000000000'
-            >
-              <AiOutlineWhatsApp className={style['icon']} />(00) 00000-0000
-            </a>
+            <div className={style['contact-text']}>(00) 00000-0000</div>
+            <div className={style['buttons']}>
+              <a
+                className={`${style['contact-button']} ${style['regular']}`}
+                href='tel:00000000000'
+              >
+                <FaPhoneAlt className={style['icon']} />
+              </a>
+              <a
+                className={`${style['contact-button']} ${style['altered']}`}
+                href='tel:00000000000'
+              >
+                <FaWhatsapp className={style['icon']} />
+              </a>
+              <div
+                className={`${style['contact-button']} ${style['altered']}`}
+                onClick={() => navigator.clipboard.writeText('(00) 00000-0000')}
+              >
+                <FaRegCopy className={style['icon']} />
+              </div>
+            </div>
           </div>
         </div>
       </div>

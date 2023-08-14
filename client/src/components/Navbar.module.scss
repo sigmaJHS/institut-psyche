@@ -144,9 +144,12 @@ $breakpoint: md;
       }
     }
   }
-  
+
   .contact-info {
+    text-align: center;
+
     @include breakpoint-max ($breakpoint) {
+      display: block;
       position: fixed;
       bottom: 15px;
       right: 30px;
@@ -155,51 +158,86 @@ $breakpoint: md;
 
     @include breakpoint-min ($breakpoint) {
       display: inline-block;
-
+      position: relative;
     }
-  
-    .contact-button {
-      width: 100%;
+
+    .contact-text {
       display: block;
-      padding: 5px 0;
-      font-size: 14px;
-      border: 2px solid $primary;
-      text-align: center;
-      border-radius: 5px;
-      text-decoration: none;
-      transition: 0.4s;
-      line-height: 1;
-    
-      &:not(:first-child) {
-        margin-top: 5px;
-      }
-    
-      &.regular {
-        background-color: $primary;
-        color: $white;
-    
-        &:hover,
-        &:focus {
-          background-color: transparent;
-          color: $high-emphasys-text;
-        }
-      }
-    
-      &.altered {
-        background-color: transparent;
+
+      @include breakpoint-max ($breakpoint) {
+        font-size: 16px;
         color: $high-emphasys-text;
+        margin-bottom: 10px;
+      }
+  
+      @include breakpoint-min ($breakpoint) {
+        font-size: 14px;
+        color: $low-emphasys-text;
+        margin-bottom: 5px;
+      }
+    }
+
+    .buttons {
+      display: block;
+
+      .contact-button {
+        display: inline-block;
+        border: 2px solid $primary;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.1s;
+
+        @include breakpoint-max ($breakpoint) {
+          height: 35px;
+          width: 35px;
+
+          &:not(:first-child) {
+            margin-left: 15px;
+          }
+        }
     
-        &:hover,
-        &:focus {
+        @include breakpoint-min ($breakpoint) {
+          height: 30px;
+          width: 30px;
+
+          &:not(:first-child) {
+            margin-left: 10px;
+          }
+        }
+    
+        &.regular {
           background-color: $primary;
           color: $white;
+      
+          &:hover,
+          &:focus {
+            background-color: transparent;
+            color: $low-emphasys-text;
+          }
         }
-      }
-    
-      .icon { 
-        vertical-align: middle;
-        margin-right: 5px;
-        font-size: 18px;
+      
+        &.altered {
+          background-color: transparent;
+          color: $low-emphasys-text;
+      
+          &:hover,
+          &:focus {
+            background-color: $primary;
+            color: $white;
+          }
+        }
+
+        .icon {
+          height: 100%;
+
+          @include breakpoint-max ($breakpoint) {
+            font-size: 20px;
+          }
+          
+          @include breakpoint-min ($breakpoint) {
+            font-size: 16px;
+          }
+        }
       }
     }
   }
