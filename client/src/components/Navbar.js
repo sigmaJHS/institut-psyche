@@ -6,7 +6,7 @@ import { useState } from 'react'
 import style from './Navbar.module.scss'
 import logo from './../assets/institut-psyche.png'
 
-function Navbar(props){
+export default function Navbar(props){
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
@@ -78,5 +78,3 @@ function Navbar(props){
     </div>
   );
 }
-
-export default Navbar;

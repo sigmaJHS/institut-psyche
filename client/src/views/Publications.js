@@ -1,9 +1,7 @@
-function Publications(){
+export default function Publications(){
   return(
     <div>
     Publications
     </div>
   )
 }
-
-export default Publications;
