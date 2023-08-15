@@ -9,6 +9,7 @@ $breakpoint: md;
   height: 80px;
   position: relative;
   background: $white;
+  font-family: 'Montserrat', 'sans-serif';
 
   @include breakpoint-min(xs) {
     height: 100px;

@@ -51,7 +51,6 @@
           text-align: left;
           font-size: 18px;
           font-family: 'Quicksand', 'sans-serif';
-          font-weight: 300;
 
           @include breakpoint-min (xs) {
             font-size: 20px;
@@ -62,6 +61,7 @@
           text-align: right;
           margin-top: 5px;
           font-size: 14px;
+          font-family: 'Montserrat', 'sans-serif';
 
           @include breakpoint-min (xs) {
             font-size: 16px;
@@ -84,6 +84,7 @@
           border: 3px solid $secondary;
           transition: 0.4s;
           border-radius: 5px;
+          font-family: 'Montserrat', 'sans-serif';
 
           &.learn {
             width: 34%;
