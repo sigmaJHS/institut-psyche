@@ -6,6 +6,10 @@
   height: 400px;
   position: relative;
 
+  @include breakpoint-min(sm) {
+    height: 600px;
+  }
+
   .background {
     position: absolute;
     width: 100%;
@@ -44,13 +48,17 @@
         width: 90%;
       }
 
+      @include breakpoint-min (sm) {
+        width: 60%;
+      }
+
       .text {
         color: $white;
+        font-weight: 300;
         
         .quote {
           text-align: left;
           font-size: 18px;
-          font-family: 'Quicksand', 'sans-serif';
 
           @include breakpoint-min (xs) {
             font-size: 20px;
@@ -61,7 +69,6 @@
           text-align: right;
           margin-top: 5px;
           font-size: 14px;
-          font-family: 'Montserrat', 'sans-serif';
 
           @include breakpoint-min (xs) {
             font-size: 16px;
@@ -76,15 +83,19 @@
         flex-direction: row;
         justify-content: space-between;
 
+        @include breakpoint-min (sm) {
+          justify-content: center;
+        }
+
         button {
           cursor: pointer;
-          font-size: 14px;
+          font-size: 12px;
           color: $white;
+          text-transform: uppercase;
           padding: 10px 0;
           border: 3px solid $secondary;
           transition: 0.4s;
           border-radius: 5px;
-          font-family: 'Montserrat', 'sans-serif';
 
           &.learn {
             width: 34%;

@@ -9,7 +9,6 @@ $breakpoint: md;
   height: 80px;
   position: relative;
   background: $white;
-  font-family: 'Montserrat', 'sans-serif';
 
   @include breakpoint-min(xs) {
     height: 100px;
@@ -145,7 +144,7 @@ $breakpoint: md;
         }
 
         @include breakpoint-max ($breakpoint) {
-          color: $high-emphasys-text;
+          color: $low-emphasys-text;
           font-size: 16px;
         }
         

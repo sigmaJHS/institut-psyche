@@ -1,11 +1,17 @@
 @import "./colors.scss";
+@import "./fonts.scss";
 
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: $sans;
+  font-weight: 500;
   background: $background;
   z-index: 0
+}
+
+P {
+  font-family: $serif;
 }
 
 .container {
