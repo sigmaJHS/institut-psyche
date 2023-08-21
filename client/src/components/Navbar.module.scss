@@ -158,6 +158,12 @@ $breakpoint: md;
           margin-left: 18px;
         }
       }
+
+      @include breakpoint-min (lg) {
+        &:not(first-of-type) {
+          margin-left: 25px;
+        }
+      }
   
       a {
         text-decoration: none;
