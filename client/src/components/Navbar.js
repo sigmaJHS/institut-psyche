@@ -1,13 +1,21 @@
 import { NavLink } from 'react-router-dom';
 import { FaPhoneAlt, FaWhatsapp, FaRegCopy } from 'react-icons/fa'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 import style from './Navbar.module.scss'
 import logo from './../assets/institut-psyche.png'
 
 export default function Navbar(props){
   const [isExpanded, setIsExpanded] = useState(false);
+
+  useEffect(
+    function () {
+      window.scrollTo(0, 0);
+      document.body.style.overflow = (isExpanded) ? "hidden" : null;
+    },
+    [isExpanded]
+  );
 
   return (
     <div className={style['navbar']}>
