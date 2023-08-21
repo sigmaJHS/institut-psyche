@@ -20,7 +20,7 @@ export default function Introduction () {
             <NavLink to='/publicacoes'>Entenda!</NavLink>
           </button>
           <button className={style.contact}>
-            <NavLink to='/contato'>Entre em contato</NavLink>
+            <NavLink to='/contato'>Nos Encontre</NavLink>
           </button>
         </div>
         </div>

@@ -3,11 +3,46 @@
 @import './../style/breakpoints.scss';
 
 .intro {
-  height: 400px;
   position: relative;
 
-  @include breakpoint-min(sm) {
-    height: 600px;
+  @media (orientation: portrait) {
+    height: 400px;
+
+    @include breakpoint-min(xs) {
+      height: 600px;
+    }
+
+    @include breakpoint-min(md) {
+      height: 800px;
+    }
+  }
+
+  @media (orientation: landscape) {
+    height: 300px;
+
+    @include breakpoint-min(md) {
+      height: 400px;
+    }
+
+    @include breakpoint-min(lg) {
+      height: 500px;
+    }
+
+    @include breakpoint-min(xl) {
+      height: 600px;
+    }
+  }
+
+  @include breakpoint-max(xs) {
+    height: calc(100vh - 80px);
+  }
+
+  @include breakpoint-min(xs) {
+    height: calc(100vh - 100px);
+  }
+
+  @include breakpoint-min(md) {
+    height: calc(100vh - 120px);
   }
 
   .background {
@@ -49,7 +84,19 @@
       }
 
       @include breakpoint-min (sm) {
+        width: 75%;
+      }
+
+      @include breakpoint-min (md) {
         width: 60%;
+      }
+
+      @include breakpoint-min (lg) {
+        width: 50%;
+      }
+
+      @include breakpoint-min (xl) {
+        width: 40%;
       }
 
       .text {
@@ -61,7 +108,11 @@
           font-size: 18px;
 
           @include breakpoint-min (xs) {
-            font-size: 20px;
+            font-size: 21px;
+          }
+
+          @include breakpoint-min (sm) {
+            font-size: 24px;
           }
         }
 
@@ -73,6 +124,10 @@
           @include breakpoint-min (xs) {
             font-size: 16px;
           }
+
+          @include breakpoint-min (sm) {
+            font-size: 18px;
+          }
         }
       }
 
@@ -83,8 +138,12 @@
         flex-direction: row;
         justify-content: space-between;
 
-        @include breakpoint-min (sm) {
+        @include breakpoint-min (xs) {
           justify-content: center;
+        }
+
+        @include breakpoint-min (lg) {
+          margin-top: 30px;
         }
 
         button {
@@ -105,10 +164,6 @@
             &focus {
               background-color: $secondary;
             }
-
-            @include breakpoint-min (xs) {
-              width: 30%;
-            }
           }
   
           &.contact {
@@ -119,6 +174,28 @@
             &focus {
               background-color: transparent;
             }
+          }
+
+          @include breakpoint-min (xs) {
+            padding: 10px 15px;
+            
+            &.learn,
+            &.contact {
+              width: auto;
+            }
+
+            &:first-child {
+              margin-right: 5px;
+            }
+          }
+
+          @include breakpoint-min (sm) {
+            padding: 10px 25px;
+          }
+
+          @include breakpoint-min (md) {
+            padding: 12px 30px;
+            font-size: 14px;
           }
 
           a {
