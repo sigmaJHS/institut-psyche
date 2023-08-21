@@ -20,16 +20,17 @@ $breakpoint: md;
 }
 
 .brand {
+  @include breakpoint-max (md) {
+    &[expanded="true"] {
+      z-index: 3;
+    }
+  }
+
   img {
     width: 150px;
   
     @include breakpoint-min(xs) {
       width: 200px;
-    }
-  }
-  @include breakpoint-max (md) {
-    &[expanded="true"] {
-      z-index: 3;
     }
   }
 }
@@ -109,6 +110,16 @@ $breakpoint: md;
   
     @include breakpoint-max ($breakpoint) {
       width: 100%;
+      margin-top: 80px;
+      margin-bottom: 90px;
+      
+      @include breakpoint-min(xs) {
+        margin-top: 100px;
+      }
+
+      @media (orientation: landscape) {
+        overflow-y: scroll;
+      }
     }
     
     @include breakpoint-min ($breakpoint) {
@@ -172,6 +183,9 @@ $breakpoint: md;
       bottom: 15px;
       right: 30px;
       left: 30px;
+      height: 60px;
+      padding-top: 15px;
+      background-color: inherit;
     }
 
     @include breakpoint-min ($breakpoint) {
