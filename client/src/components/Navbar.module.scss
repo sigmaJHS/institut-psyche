@@ -30,6 +30,18 @@ $breakpoint: md;
     width: 150px;
   
     @include breakpoint-min(xs) {
+      width: 180px;
+    }
+  
+    @include breakpoint-min(md) {
+      width: 150px;
+    }
+  
+    @include breakpoint-min(lg) {
+      width: 180px;
+    }
+  
+    @include breakpoint-min(xl) {
       width: 200px;
     }
   }
