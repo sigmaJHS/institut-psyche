@@ -13,275 +13,279 @@ $breakpoint: md;
   @include breakpoint-min(xs) {
     height: 100px;
   }
-}
 
-.brand {
-  @include breakpoint-max (md) {
-    &[expanded="true"] {
-      z-index: 3;
-    }
-  }
-
-  img {
-    width: 150px;
-  
-    @include breakpoint-min(xs) {
-      width: 180px;
-    }
-  
-    @include breakpoint-min(md) {
-      width: 150px;
-    }
-  
-    @include breakpoint-min(lg) {
-      width: 180px;
-    }
-  
-    @include breakpoint-min(xl) {
-      width: 200px;
-    }
-  }
-}
-
-.toggle {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  border: 2px solid $primary;
-  background-color: transparent;
-  text-align: center;
-
-  &[expanded="true"] {
-    background-color: $primary;
-    z-index: 3;
-
-    .line{
-      background-color: $white;
-    }
-  }
-
-  @include breakpoint-min(xs) {
-    width: 40px;
-    height: 40px;
-    margin-right: 15px;
-  }
-
-  @include breakpoint-min(md) {
-    display: none;
-  }
-
-  .line{
-    height: 2px;
-    width: 14px;
-    margin: 3px auto;
-    background-color: $primary;
-
-    @include breakpoint-min(xs) {
-      width: 18px;
-    }
-  }
-}
-
-.menu {
-  @include breakpoint-max($breakpoint) {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+  .navbar-inner {
+    width: 100%;
+    height: 100%;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    padding: 0 30px;
-    margin: 0;
-    transition: 0.2s;
-    background: $darker-white;
-    z-index: -1;
-    opacity: 0;
-    
-    &[expanded="true"] {
-      z-index: 2;
-      opacity: 1;
-      transition: 0.8s;
-    }
-  }
-    
-  @include breakpoint-min ($breakpoint) {
-    display: inline-block;
-  }
 
-  .navigation {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  
-    @include breakpoint-max ($breakpoint) {
-      width: 100%;
-      margin-top: 80px;
-      margin-bottom: 90px;
+    .brand {
+      @include breakpoint-max (md) {
+        &[expanded="true"] {
+          z-index: 3;
+        }
+      }
+    
+      img {
+        width: 150px;
       
-      @include breakpoint-min(xs) {
-        margin-top: 100px;
-      }
-
-      @media (orientation: landscape) {
-        overflow-y: scroll;
+        @include breakpoint-min(xs) {
+          width: 180px;
+        }
+      
+        @include breakpoint-min(md) {
+          width: 150px;
+        }
+      
+        @include breakpoint-min(lg) {
+          width: 180px;
+        }
+      
+        @include breakpoint-min(xl) {
+          width: 200px;
+        }
       }
     }
     
-    @include breakpoint-min ($breakpoint) {
-      display: inline-block;
-      margin-right: 50px;
-      margin-top: 20px;
-      vertical-align: middle;
-    }
-  
-    .nav-item {
-      font-size: 16px;
-  
-      @include breakpoint-max ($breakpoint) {
-        padding: 10px 0;
-        width: 100%;
-        text-align: center;
-        border-bottom: 1px solid $low-emphasys-text;
+    .toggle {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 2px solid $primary;
+      background-color: transparent;
+      text-align: center;
+    
+      &[expanded="true"] {
+        background-color: $primary;
+        z-index: 3;
+    
+        .line{
+          background-color: $white;
+        }
       }
-
+    
+      @include breakpoint-min(xs) {
+        width: 40px;
+        height: 40px;
+        margin-right: 15px;
+      }
+    
+      @include breakpoint-min(md) {
+        display: none;
+      }
+    
+      .line{
+        height: 2px;
+        width: 14px;
+        margin: 3px auto;
+        background-color: $primary;
+    
+        @include breakpoint-min(xs) {
+          width: 18px;
+        }
+      }
+    }
+    
+    .menu {
+      @include breakpoint-max($breakpoint) {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 0 30px;
+        margin: 0;
+        transition: 0.2s;
+        background: $darker-white;
+        z-index: -1;
+        opacity: 0;
+        
+        &[expanded="true"] {
+          z-index: 2;
+          opacity: 1;
+          transition: 0.8s;
+        }
+      }
+        
       @include breakpoint-min ($breakpoint) {
         display: inline-block;
-
-        &:not(first-of-type) {
-          margin-left: 18px;
-        }
       }
-
-      @include breakpoint-min (lg) {
-        &:not(first-of-type) {
-          margin-left: 25px;
-        }
-      }
-  
-      a {
-        text-decoration: none;
-  
-        &[class="active"] {
-          font-weight: bold;
-        }
-
+    
+      .navigation {
         @include breakpoint-max ($breakpoint) {
-          color: $low-emphasys-text;
-          font-size: 16px;
+          width: 100%;
+          margin-top: 80px;
+          margin-bottom: 90px;
+          
+          @include breakpoint-min(xs) {
+            margin-top: 100px;
+          }
+    
+          @media (orientation: landscape) {
+            overflow-y: scroll;
+          }
         }
         
         @include breakpoint-min ($breakpoint) {
-          color: $low-emphasys-text;
-          font-size: 14px;
-  
-          &[class="active"],
-          &:hover,
-          &:focus {
-            color: $high-emphasys-text;
-            text-decoration: underline;
+          display: inline-block;
+          margin-right: 50px;
+          margin-top: 20px;
+          vertical-align: middle;
+        }
+      
+        .nav-item {
+          font-size: 16px;
+      
+          @include breakpoint-max ($breakpoint) {
+            padding: 10px 0;
+            width: 100%;
+            text-align: center;
+            border-bottom: 1px solid $low-emphasys-text;
+          }
+    
+          @include breakpoint-min ($breakpoint) {
+            display: inline-block;
+    
+            &:not(first-of-type) {
+              margin-left: 18px;
+            }
+          }
+    
+          @include breakpoint-min (lg) {
+            &:not(first-of-type) {
+              margin-left: 25px;
+            }
+          }
+      
+          a {
+            text-decoration: none;
+      
+            &[class="active"] {
+              font-weight: bold;
+            }
+    
+            @include breakpoint-max ($breakpoint) {
+              color: $low-emphasys-text;
+              font-size: 16px;
+            }
+            
+            @include breakpoint-min ($breakpoint) {
+              color: $low-emphasys-text;
+              font-size: 14px;
+      
+              &[class="active"],
+              &:hover,
+              &:focus {
+                color: $high-emphasys-text;
+                text-decoration: underline;
+              }
+            }
           }
         }
       }
-    }
-  }
-
-  .contact-info {
-    text-align: center;
-
-    @include breakpoint-max ($breakpoint) {
-      display: block;
-      position: fixed;
-      bottom: 15px;
-      right: 30px;
-      left: 30px;
-      height: 60px;
-      padding-top: 15px;
-      background-color: inherit;
-    }
-
-    @include breakpoint-min ($breakpoint) {
-      display: inline-block;
-      position: relative;
-      vertical-align: middle;
-    }
-
-    .contact-text {
-      display: block;
-      margin-bottom: 5px;
-
-      @include breakpoint-max ($breakpoint) {
-        font-size: 16px;
-        color: $high-emphasys-text;
-      }
-  
-      @include breakpoint-min ($breakpoint) {
-        font-size: 14px;
-        color: $low-emphasys-text;
-      }
-    }
-
-    .buttons {
-      display: block;
-
-      .contact-button {
-        display: inline-block;
-        border: 2px solid $primary;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: 0.1s;
-
+    
+      .contact-info {
+        text-align: center;
+    
         @include breakpoint-max ($breakpoint) {
-          height: 30px;
-          width: 30px;
-
-          &:not(:first-child) {
-            margin-left: 15px;
-          }
+          display: block;
+          position: fixed;
+          bottom: 15px;
+          right: 30px;
+          left: 30px;
+          height: 60px;
+          padding-top: 15px;
+          background-color: inherit;
         }
     
         @include breakpoint-min ($breakpoint) {
-          height: 25px;
-          width: 25px;
-
-          &:not(:first-child) {
-            margin-left: 10px;
-          }
+          display: inline-block;
+          position: relative;
+          vertical-align: middle;
         }
     
-        &.regular {
-          background-color: $primary;
-          color: $white;
+        .contact-text {
+          display: block;
+          margin-bottom: 5px;
+    
+          @include breakpoint-max ($breakpoint) {
+            font-size: 16px;
+            color: $high-emphasys-text;
+          }
       
-          &:hover,
-          &:focus {
-            background-color: transparent;
+          @include breakpoint-min ($breakpoint) {
+            font-size: 14px;
             color: $low-emphasys-text;
           }
         }
-      
-        &.altered {
-          background-color: transparent;
-          color: $low-emphasys-text;
-      
-          &:hover,
-          &:focus {
-            background-color: $primary;
-            color: $white;
-          }
-        }
-
-        .icon {
-          height: 100%;
-
-          @include breakpoint-max ($breakpoint) {
-            font-size: 16px;
-          }
+    
+        .buttons {
+          display: block;
+    
+          .contact-button {
+            display: inline-block;
+            border: 2px solid $primary;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.1s;
+    
+            @include breakpoint-max ($breakpoint) {
+              height: 30px;
+              width: 30px;
+    
+              &:not(:first-child) {
+                margin-left: 15px;
+              }
+            }
+        
+            @include breakpoint-min ($breakpoint) {
+              height: 25px;
+              width: 25px;
+    
+              &:not(:first-child) {
+                margin-left: 10px;
+              }
+            }
+        
+            &.regular {
+              background-color: $primary;
+              color: $white;
           
-          @include breakpoint-min ($breakpoint) {
-            font-size: 14px;
+              &:hover,
+              &:focus {
+                background-color: transparent;
+                color: $low-emphasys-text;
+              }
+            }
+          
+            &.altered {
+              background-color: transparent;
+              color: $low-emphasys-text;
+          
+              &:hover,
+              &:focus {
+                background-color: $primary;
+                color: $white;
+              }
+            }
+    
+            .icon {
+              height: 100%;
+    
+              @include breakpoint-max ($breakpoint) {
+                font-size: 16px;
+              }
+              
+              @include breakpoint-min ($breakpoint) {
+                font-size: 14px;
+              }
+            }
           }
         }
       }
