@@ -13,7 +13,15 @@
     }
 
     @include breakpoint-min(md) {
-      height: 800px;
+      height: 900px;
+    }
+
+    @include breakpoint-min(lg) {
+      height: 1200px;
+    }
+
+    @include breakpoint-min(xl) {
+      height: 1600px;
     }
   }
 
@@ -25,11 +33,11 @@
     }
 
     @include breakpoint-min(lg) {
-      height: 500px;
+      height: 450px;
     }
 
     @include breakpoint-min(xl) {
-      height: 600px;
+      height: 500px;
     }
   }
 
@@ -39,10 +47,6 @@
 
   @include breakpoint-min(xs) {
     height: calc(100vh - 100px);
-  }
-
-  @include breakpoint-min(md) {
-    height: calc(100vh - 120px);
   }
 
   .background {
@@ -95,38 +99,50 @@
         width: 50%;
       }
 
-      @include breakpoint-min (xl) {
-        width: 40%;
-      }
-
       .text {
         color: $white;
         font-weight: 300;
         
         .quote {
           text-align: left;
-          font-size: 18px;
+          font-size: 16px;
 
           @include breakpoint-min (xs) {
-            font-size: 21px;
+            font-size: 18px;
           }
 
           @include breakpoint-min (sm) {
+            font-size: 21px;
+          }
+
+          @include breakpoint-min (md) {
             font-size: 24px;
+          }
+
+          @include breakpoint-min (lg) {
+            font-size: 32px;
           }
         }
 
         .author {
           text-align: right;
           margin-top: 5px;
-          font-size: 14px;
+          font-size: 12px;
 
           @include breakpoint-min (xs) {
-            font-size: 16px;
+            font-size: 14px;
           }
 
           @include breakpoint-min (sm) {
+            font-size: 16px;
+          }
+
+          @include breakpoint-min (md) {
             font-size: 18px;
+          }
+
+          @include breakpoint-min (lg) {
+            font-size: 21px;
           }
         }
       }
@@ -148,7 +164,7 @@
 
         button {
           cursor: pointer;
-          font-size: 12px;
+          font-size: 11px;
           color: $white;
           text-transform: uppercase;
           padding: 10px 0;
@@ -191,11 +207,16 @@
 
           @include breakpoint-min (sm) {
             padding: 10px 25px;
+            font-size: 12px;
           }
 
           @include breakpoint-min (md) {
             padding: 12px 30px;
             font-size: 14px;
+          }
+
+          @include breakpoint-min (lg) {
+            padding: 12px 30px;
           }
 
           a {

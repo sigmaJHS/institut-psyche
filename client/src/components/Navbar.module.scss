@@ -13,10 +13,6 @@ $breakpoint: md;
   @include breakpoint-min(xs) {
     height: 100px;
   }
-
-  @include breakpoint-min(md) {
-    height: 120px;
-  }
 }
 
 .brand {
