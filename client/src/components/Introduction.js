@@ -12,7 +12,7 @@ export default function Introduction () {
       <div className={style.content}>
         <div className={style.caption}>
           <div className={style.text}>
-            <div className={style.quote}>"A psicanálise é, em essência, uma cura pelo amor"</div>
+            <div className={style.quote}>"A Psicanálise é, em essência, uma cura pelo amor"</div>
             <div className={style.author}>- Sigmund Freud</div>
           </div>
         <div className={style.buttons}>
