@@ -1,5 +1,6 @@
 @import "./colors.scss";
 @import "./fonts.scss";
+@import "./breakpoints.scss";
 
 body {
   margin: 0;
@@ -10,8 +11,56 @@ body {
   z-index: 0
 }
 
+h1,
+h2,
+h3 {
+  text-transform: uppercase;
+  font-weight: 500;
+  text-align: center;
+  color: $high-emphasys-text;
+  display: block;
+  width: 100%;
+}
+
+h1 {
+  font-size: 21px;
+  margin-top: 20px;
+  margin-bottom: 15px;
+
+  @include breakpoint-min(lg) {
+    margin-top: 40px;
+    margin-bottom: 30px;
+  }
+}
+
+h2 {
+  font-size: 16px;
+  margin-top: 12px;
+  margin-bottom: 10px;
+
+  @include breakpoint-min(lg) {
+    margin-top: 25px;
+    margin-bottom: 20px;
+  }
+}
+
+h3 {
+  font-size: 14px;
+  text-align: left;
+}
+
 p {
+  font-size: 16px;
   font-family: $serif;
+  color: $low-emphasys-text;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .container {
