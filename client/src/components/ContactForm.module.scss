@@ -1,4 +1,5 @@
 @import './../style/colors.scss';
+@import './../style/breakpoints.scss';
 
 .form {
   width: 100%;
@@ -6,6 +7,10 @@
   .form-row {
     width: 100%;
     margin-top: 10px;
+
+    &.footer-row {
+      text-align: right;
+    }
     
     label {
       text-transform: uppercase;
@@ -42,6 +47,11 @@
       &:focus {
         background: transparent;
         color: $high-emphasys-text;
+      }
+
+      @include breakpoint-min (md) {
+        width: auto;
+        padding: 0 40px;
       }
     }
   }

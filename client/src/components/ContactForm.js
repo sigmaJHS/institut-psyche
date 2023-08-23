@@ -15,7 +15,7 @@ export default function ContactForm () {
         <label htmlFor='message'>Sua Mensagem:</label>
         <textarea rows='8' id='message' name='message' />
       </div>
-      <div className={style['form-row']}>
+      <div className={`${style['form-row']} ${style['footer-row']}`}>
         <button>Enviar</button>
       </div>
     </form>
