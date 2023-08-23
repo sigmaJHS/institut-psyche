@@ -6,8 +6,6 @@ import { useState, useEffect } from 'react'
 import style from './Navbar.module.scss'
 import logo from './../assets/institut-psyche.png'
 
-import routes from './../const/routes';
-
 export default function Navbar(props){
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -48,7 +46,7 @@ export default function Navbar(props){
           >
             <ul className={style['navigation']}>
               {
-                routes.map(
+                props.routes.map(
                   function (route, key) {
                     return (
                       <li key={key} className={style['nav-item']}>
