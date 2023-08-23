@@ -1,0 +1,26 @@
+@import './../style/colors.scss';
+
+ul {
+  li {
+    color: $low-emphasys-text;
+    margin-bottom: 5px;
+
+    .icon {
+      font-size: 16px;
+      vertical-align: middle;
+    }
+
+    a {
+      vertical-align: middle;
+      font-size: 14px;
+      text-decoration: underline;
+      color: inherit;
+      margin-left: 4px;
+
+      &:hover,
+      &:focus {
+        text-decoration: none;
+      }
+    }
+  }
+}
