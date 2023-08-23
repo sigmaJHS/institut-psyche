@@ -1,6 +1,8 @@
 @import './../style/colors.scss';
 
 ul {
+  width: auto;
+  
   li {
     color: $low-emphasys-text;
     margin-bottom: 5px;

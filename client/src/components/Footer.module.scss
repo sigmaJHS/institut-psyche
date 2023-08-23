@@ -4,12 +4,49 @@
 .footer {
   margin-top: 50px;
 
+  .footer-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 10px;
+    background-color: $lighter-gray;
+
+    .social-button {
+      &:not(:first-child) {
+        margin-left: 10px;
+      }
+
+      a {
+        display: block;
+        border: 1px solid $low-emphasys-text;
+        color: $low-emphasys-text;
+        font-size: 21px;
+        border-radius: 50%;
+        line-height: 40px;
+        width: 40px;
+        text-align: center;
+        transition: .2s;
+
+        &:hover,
+        &:focus {
+          background: $primary;
+          color: $lighter-gray;
+          border-color: $primary;
+        }
+
+        .icon {
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+
   .footer-inner {
     background-color: $gray;
     padding: 15px 0;
 
     @include breakpoint-min (md) {
-      padding: 40px 0 15px;
+      padding: 40px 0;
     }
 
     [class="container"] {
@@ -25,9 +62,11 @@
       .brand {
         img {
           width: 200px;
+          margin-bottom: 20px;
 
           @include breakpoint-min (md) {
-            width: 300px;
+            width: 250px;
+            margin-bottom: 0;
           }
         }
       }
@@ -45,8 +84,13 @@
     padding: 15px 0;
 
     a{
-      font-style: underline;
+      text-decoration: underline;
       color: inherit;
+
+      &:hover,
+      &:focus {
+        text-decoration: none;
+      }
     }
   }
 }
