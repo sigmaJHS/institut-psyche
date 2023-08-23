@@ -32,7 +32,7 @@ export default function Footer () {
           }
         </div>
         <div className={style['footer-inner']}>
-          <div class='container'>
+          <div className='container'>
             <div className={style['brand']}>
               <NavLink  to='/'>
                 <img src={logo} alt='Institut Psyché' />
