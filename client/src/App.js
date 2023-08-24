@@ -1,7 +1,9 @@
+import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import Notification from './components/Notification'
 
 import Home from './views/Home'
 import About from './views/About'
@@ -39,9 +41,44 @@ function App() {
     }
   ];
 
+  const [notification, setNotification] = useState(
+    {
+      'status': null,
+      'message': null
+    }
+  );
+
+  function handleNotification (status, message) {
+    setNotification(
+      {
+        'status': status,
+        'message': message
+      }
+    );
+
+    setTimeout(
+      function () {
+        setNotification(
+          {
+            'status': null,
+            'message': null
+          }
+        );
+      },
+      5000
+    );
+  }
+
   return (
     <BrowserRouter basename="/">
-      <Navbar routes={navigableRoutes} />
+      <Notification
+        status={notification.status}
+        message={notification.message}
+      />
+      <Navbar
+        routes={navigableRoutes}
+        notification={handleNotification}
+      />
       <Routes>
         {
           navigableRoutes.map(
@@ -50,7 +87,8 @@ function App() {
                 <Route
                   key={key}
                   path={route.path}
-                  element={ <route.view /> } />
+                  element={ <route.view /> }
+                />
               );
             }
           )

@@ -17,6 +17,14 @@ export default function Navbar(props){
     [isExpanded]
   );
 
+  function copyToClipboard (event) {
+    window.navigator.clipboard.writeText(
+      event.target.getAttribute('data-copy')
+    );
+    
+    props.notification ('success', 'Copiado');
+  }
+
   return (
     <div className={style['navbar']}>
       <div className='container'>
@@ -76,7 +84,8 @@ export default function Navbar(props){
                 </a>
                 <div
                   className={`${style['contact-button']} ${style['altered']}`}
-                  onClick={() => navigator.clipboard.writeText('(00) 00000-0000')}
+                  onClick={copyToClipboard}
+                  data-copy='(11) 97165-8694'
                 >
                   <FaRegCopy className={style['icon']} />
                 </div>
