@@ -46,7 +46,8 @@ function App() {
     {
       'isOpen': false,
       'message': '',
-      'status': ''
+      'status': '',
+      'timeoutID':  0
     }
   );
 
@@ -55,11 +56,17 @@ function App() {
   }
 
   function triggerNotification (status, message) {
+    clearTimeout(notification.timeoutID);
+
     setNotification(
       {
         'isOpen': true,
         'status': status,
-        'message': message
+        'message': message,
+        'timeoutID': setTimeout(
+          closeNotification,
+          5000
+        )
       }
     );
   }
