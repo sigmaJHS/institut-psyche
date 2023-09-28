@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { NotificationContext } from './contexts/NotificationContext'
 
@@ -18,9 +18,11 @@ function App() {
       'timeoutID':  0
     }
   );
+  const notificationRef = useRef(null);
+  notificationRef.current = notification;
 
   function closeNotification () {
-    setNotification ({...notification, 'isOpen': false});
+    setNotification ({...notificationRef.current, 'isOpen': false});
   }
 
   function triggerNotification (status, message) {
