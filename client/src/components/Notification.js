@@ -1,18 +1,8 @@
-import { useState, useEffect } from 'react';
 import style from './Notification.module.scss'
 
 import {FaCheck, FaTimes, FaExclamation} from 'react-icons/fa'
 
 export default function Notification (props) {
-
-  const [open, setOpen] = useState(false);
-
-  useEffect (
-    function () {
-      setOpen(props.status !== null);
-    },
-    [props.status]
-  )
 
   let Icon = null;
   if (props.status === 'success') {
@@ -26,9 +16,15 @@ export default function Notification (props) {
 
   return (
     <div
-      className={style['notification']}
-      data-open={open}
+      id={style['notification']}
+      data-open={(props.isOpen === true) ? 'true' : 'false'}
     >
+      <div
+        className={style['close']}
+        onClick={() => props.close()}
+      >
+        x
+      </div>
       <div className={style['notification-inner']}>
         <div
           className={style['status']}

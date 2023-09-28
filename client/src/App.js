@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { NotificationContext } from './contexts/NotificationContext'
 
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
@@ -40,61 +41,56 @@ function App() {
       view: Contact
     }
   ];
-
-  const [notification, setNotification] = useState(
+  
+  const [notification, setNotification] = useState (
     {
-      'status': null,
-      'message': null
+      'isOpen': false,
+      'message': '',
+      'status': ''
     }
   );
 
-  function handleNotification (status, message) {
+  function closeNotification () {
+    setNotification ({...notification, 'isOpen': false});
+  }
+
+  function triggerNotification (status, message) {
     setNotification(
       {
+        'isOpen': true,
         'status': status,
         'message': message
       }
-    );
-
-    setTimeout(
-      function () {
-        setNotification(
-          {
-            'status': null,
-            'message': null
-          }
-        );
-      },
-      5000
     );
   }
 
   return (
     <BrowserRouter basename="/">
-      <Notification
-        status={notification.status}
-        message={notification.message}
-      />
-      <Navbar
-        routes={navigableRoutes}
-        notification={handleNotification}
-      />
-      <Routes>
-        {
-          navigableRoutes.map(
-            function (route, key) {
-              return (
-                <Route
-                  key={key}
-                  path={route.path}
-                  element={ <route.view /> }
-                />
-              );
-            }
-          )
-        }
-      </Routes>
-      <Footer />     
+      <NotificationContext.Provider value={triggerNotification}>
+        <Notification
+          {...notification}
+          close={closeNotification}
+        />
+        <Navbar
+          routes={navigableRoutes}
+        />
+        <Routes>
+          {
+            navigableRoutes.map(
+              function (route, key) {
+                return (
+                  <Route
+                    key={key}
+                    path={route.path}
+                    element={ <route.view /> }
+                  />
+                );
+              }
+            )
+          }
+        </Routes>
+        <Footer />    
+      </NotificationContext.Provider>
     </BrowserRouter>
   );
 }

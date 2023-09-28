@@ -1,61 +1,72 @@
-@import './../style/colors.scss';
 @import './../style/breakpoints.scss';
+@import './../style/colors.scss';
 
-.notification {
+#notification {
   background-color: $white;
   position: fixed;
-  width: 90%;
-  left: 5%;
-  bottom: -200px;
+  bottom: -10px;
+  left: 50%;
+  transform: translate(-50%, 100%);
   transition: .4s;
-  z-index: -1;
-  opacity: 0;
+  z-index: 5;
   box-shadow: 0 0 5px 0;
-
-  @include breakpoint-min (sm){
-    width: 80%;
-    left: 10%;
-  }
-
-  @include breakpoint-min (md){
-    width: 50%;
-    left: 25%;
-  }
-
-  @include breakpoint-min (lg){
-    width: 40%;
-    left: 30%;
-  }
-
-  @include breakpoint-min (xl){
-    width: 30%;
-    left: 35%;
-  }
+  width: 90%;
 
   &[data-open="true"] {
-    top: auto;
     bottom: 30px;
-    z-index: 3;
-    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+
+  @include breakpoint-min (xs) {
+    width: 75%;
+  }
+
+  @include breakpoint-min (sm) {
+    width: 60%;
+  }
+
+  @include breakpoint-min (md) {
+    width: 50%;
+  }
+
+  @include breakpoint-min (lg) {
+    width: 40%;
+  }
+
+  @include breakpoint-min (xl) {
+    width: 30%;
+  }
+
+  .close {
+    position: absolute;
+    right: 5px;
+    top: 0px;
+    font-family: monospace;
+    font-size: 16px;
+    font-weight: lighter;
+    cursor: pointer;
+    color: $low-emphasys-text;
   }
 
   .notification-inner {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    padding: 10px;
+    padding: 10px 20px;
+
+    @include breakpoint-min (sm) {
+      padding: 10px 25px;
+    }
 
     .status {
-      width: 30px;
-      min-width: 30px;
-      line-height: 30px;
-      height: 30px;
       text-align: center;
       border: 3px solid;
       border-radius: 50%;
       color: $blue;
       border-color: $blue;
+      margin-right: 20px;
+      padding: 4px;
   
       &[data-status="success"] {
         color: $green;
@@ -75,11 +86,9 @@
     }
   
     .message {
-      font-size: 16px;
-      line-height: 30px;
+      font-size: 14px;
       color: $low-emphasys-text;
       vertical-align: middle;
-      margin-left: 20px;
     }
   }
 }

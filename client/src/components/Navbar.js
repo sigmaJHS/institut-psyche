@@ -1,12 +1,14 @@
 import { NavLink } from 'react-router-dom';
 import { FaPhoneAlt, FaWhatsapp, FaRegCopy } from 'react-icons/fa'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
+import { NotificationContext } from './../contexts/NotificationContext'
 
 import style from './Navbar.module.scss'
 import logo from './../assets/institut-psyche.png'
 
 export default function Navbar(props){
+  const triggerNotification = useContext(NotificationContext);
   const [isExpanded, setIsExpanded] = useState(false);
 
   useEffect(
@@ -22,7 +24,7 @@ export default function Navbar(props){
       event.target.getAttribute('data-copy')
     );
     
-    props.notification ('success', 'Copiado');
+    triggerNotification ('success', 'Copiado.');
   }
 
   return (
