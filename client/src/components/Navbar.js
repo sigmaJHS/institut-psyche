@@ -7,6 +7,8 @@ import { NotificationContext } from './../contexts/NotificationContext'
 import style from './Navbar.module.scss'
 import logo from './../assets/institut-psyche.png'
 
+import { navigableRoutes } from './../const/routes'
+
 export default function Navbar(props){
   const triggerNotification = useContext(NotificationContext);
   const [isExpanded, setIsExpanded] = useState(false);
@@ -56,7 +58,7 @@ export default function Navbar(props){
           >
             <ul className={style['navigation']}>
               {
-                props.routes.map(
+                navigableRoutes.map(
                   function (route, key) {
                     return (
                       <li key={key} className={style['nav-item']}>
