@@ -134,7 +134,6 @@ $breakpoint: md;
         
         @include breakpoint-min ($breakpoint) {
           display: inline-block;
-          margin-right: 50px;
           margin-top: 20px;
           vertical-align: middle;
         }
@@ -190,39 +189,96 @@ $breakpoint: md;
         }
       }
     
-      .contact-info {
-        text-align: center;
+      .contact-info-desktop {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: $primary;
+        padding: 2px 0px 2px 100px;
+        border-bottom-left-radius: 30px;
     
         @include breakpoint-max ($breakpoint) {
-          display: block;
-          position: fixed;
-          bottom: 15px;
-          right: 30px;
-          left: 30px;
-          height: 60px;
-          padding-top: 15px;
-          background-color: inherit;
+          display: none;
         }
     
+        @include breakpoint-min (lg) {
+          padding-left: 150px;
+        }
+    
+        @include breakpoint-min (xl) {
+          padding-left: 250px;
+        }
+    
+        @include breakpoint-min (xl) {
+          padding-left: 400px;
+        }
+
+        ul {
+          margin-right: 15px;
+
+          @include breakpoint-min (md) {
+            margin-right: 30px;
+          }
+
+          @include breakpoint-min (lg) {
+            margin-right: 60px;
+          }
+
+          @include breakpoint-min (xl) {
+            margin-right: 90px;
+          }
+
+          @include breakpoint-min (xxl) {
+            margin-right: 120px;
+          }
+
+          li {
+            display: inline-block;
+            font-size: 12px;
+            color: $white;
+
+            &:not(:first-of-type) {
+              margin-left: 20px;
+            }
+
+            .icon {
+              vertical-align: middle;
+              margin-right: 5px;
+            }
+
+            a {
+              color: inherit;
+              text-decoration: none;
+
+              &:hover,
+              &:focus {
+                text-decoration: underline;
+              }
+            }
+          }
+        }
+      }
+    
+      .contact-info-mobile {
+        text-align: center;
+        display: block;
+        position: fixed;
+        bottom: 15px;
+        right: 30px;
+        left: 30px;
+        height: 60px;
+        padding-top: 15px;
+        background-color: inherit;
+    
         @include breakpoint-min ($breakpoint) {
-          display: inline-block;
-          position: relative;
-          vertical-align: middle;
+          display: none;
         }
     
         .contact-text {
           display: block;
           margin-bottom: 5px;
-    
-          @include breakpoint-max ($breakpoint) {
-            font-size: 16px;
-            color: $high-emphasys-text;
-          }
-      
-          @include breakpoint-min ($breakpoint) {
-            font-size: 14px;
-            color: $low-emphasys-text;
-          }
+          font-size: 16px;
+          color: $high-emphasys-text;
         }
     
         .buttons {
@@ -234,23 +290,11 @@ $breakpoint: md;
             border-radius: 5px;
             cursor: pointer;
             transition: 0.1s;
-    
-            @include breakpoint-max ($breakpoint) {
-              height: 30px;
-              width: 30px;
-    
-              &:not(:first-child) {
-                margin-left: 15px;
-              }
-            }
-        
-            @include breakpoint-min ($breakpoint) {
-              height: 25px;
-              width: 25px;
-    
-              &:not(:first-child) {
-                margin-left: 10px;
-              }
+            height: 30px;
+            width: 30px;
+  
+            &:not(:first-child) {
+              margin-left: 15px;
             }
         
             &.regular {
@@ -280,10 +324,6 @@ $breakpoint: md;
     
               @include breakpoint-max ($breakpoint) {
                 font-size: 16px;
-              }
-              
-              @include breakpoint-min ($breakpoint) {
-                font-size: 14px;
               }
             }
           }
