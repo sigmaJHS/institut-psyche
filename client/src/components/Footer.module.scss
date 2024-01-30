@@ -4,45 +4,8 @@
 .footer {
   margin-top: 50px;
 
-  .footer-top {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    padding: 10px;
-    background-color: $lighter-gray;
-
-    .social-button {
-      &:not(:first-child) {
-        margin-left: 10px;
-      }
-
-      a {
-        display: block;
-        border: 1px solid $low-emphasys-text;
-        color: $low-emphasys-text;
-        font-size: 21px;
-        border-radius: 50%;
-        line-height: 40px;
-        width: 40px;
-        text-align: center;
-        transition: .2s;
-
-        &:hover,
-        &:focus {
-          background: $primary;
-          color: $lighter-gray;
-          border-color: $primary;
-        }
-
-        .icon {
-          vertical-align: middle;
-        }
-      }
-    }
-  }
-
   .footer-inner {
-    background-color: $gray;
+    background-color: $secondary;
     padding: 15px 0;
 
     @include breakpoint-min (md) {
@@ -71,21 +34,31 @@
         }
       }
 
+      .separator {
+        width: 1px;
+        height: 200px;
+        background: $white;
+
+        @include breakpoint-max (md) {
+          display: none;
+        }
+      }
+
       .links {
         margin-top: 10px;
       }
     }
   }
   .footer-bottom {
-    background-color: $darker-gray;
-    color: $high-emphasys-text;
+    background-color: $darker-secondary;
+    color: $white;
     text-align: center;
     font-size: 14px;
-    padding: 15px 0;
+    padding: 20px 0;
 
     a{
       text-decoration: underline;
-      color: inherit;
+      color: $primary;
 
       &:hover,
       &:focus {

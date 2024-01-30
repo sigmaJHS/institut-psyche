@@ -4,7 +4,10 @@ import links from './../const/links'
 
 export default function ContactLinks(props){  
   return (
-    <ul className={style['list']}>
+    <ul
+      className={style['list']}
+      color={(props.color !== undefined) ? props.color : null}
+    >
       {
         links.map(
           function (link, key) {

@@ -1,27 +1,45 @@
 @import './../style/colors.scss';
+@import './../style/breakpoints.scss';
 
 .list {
   width: auto;
+  color: $low-emphasys-text;
+
+  &[color="white"] {
+    color: $white;
+  }
   
   .item {
-    color: $low-emphasys-text;
     margin-bottom: 5px;
 
+    @include breakpoint-max (md) {
+      margin-bottom: 10px;
+    }
+
     .icon {
-      font-size: 16px;
+      font-size: 14px;
       vertical-align: middle;
+      margin-right: 5px;
+
+      @include breakpoint-max (md) {
+        font-size: 16px;
+      }
     }
 
     .link {
       vertical-align: middle;
-      font-size: 14px;
-      text-decoration: underline;
+      font-size: 12px;
       color: inherit;
       margin-left: 4px;
+      text-decoration: none;
 
       &:hover,
       &:focus {
-        text-decoration: none;
+        text-decoration: underline;
+      }
+
+      @include breakpoint-max (md) {
+        font-size: 14px;
       }
     }
   }
