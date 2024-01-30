@@ -1,3 +1,4 @@
+@import './../style/main.scss';
 @import './../style/colors.scss';
 @import './../style/breakpoints.scss';
 
@@ -194,7 +195,7 @@ $breakpoint: md;
         top: 0;
         right: 0;
         background: $primary;
-        padding: 2px 0px 2px 100px;
+        padding: 5px 0px 5px 100px;
         border-bottom-left-radius: 30px;
     
         @include breakpoint-max ($breakpoint) {
@@ -214,23 +215,39 @@ $breakpoint: md;
         }
 
         ul {
-          margin-right: 15px;
+          margin-right: container-padding(sm);
 
           @include breakpoint-min (md) {
-            margin-right: 30px;
+            margin-right: container-padding(md);
           }
 
           @include breakpoint-min (lg) {
-            margin-right: 60px;
+            margin-right: container-padding(lg);
           }
 
           @include breakpoint-min (xl) {
-            margin-right: 90px;
+            margin-right: container-padding(xl);
           }
 
           @include breakpoint-min (xxl) {
-            margin-right: 120px;
+            margin-right: container-padding(xxl);
           }
+
+          // @include breakpoint-min (md) {
+          //   padding: 0 container-padding(md);
+          // }
+        
+          // @include breakpoint-min (lg) {
+          //   padding: 0 container-padding(lg);
+          // }
+        
+          // @include breakpoint-min (xl) {
+          //   padding: 0 container-padding(xl);
+          // }
+        
+          // @include breakpoint-min (xxl) {
+          //   padding: 0 container-padding(xxl);
+          // }
 
           li {
             display: inline-block;

@@ -63,6 +63,20 @@ ul {
   list-style: none;
 }
 
+@function container-padding($name) {
+  @return map-get(
+    (
+      xs: 15px,
+      sm: 15px,
+      md: 30px,
+      lg: 60px,
+      xl: 90px,
+      xxl: 120px
+    ),
+    $name
+  );
+}
+
 .container {
   display: block;
   margin: 0 auto;
@@ -70,18 +84,18 @@ ul {
   height: 100%;
 
   @include breakpoint-min (md) {
-    padding: 0 30px;
+    padding: 0 container-padding(md);
   }
 
   @include breakpoint-min (lg) {
-    padding: 0 60px;
+    padding: 0 container-padding(lg);
   }
 
   @include breakpoint-min (xl) {
-    padding: 0 90px;
+    padding: 0 container-padding(xl);
   }
 
   @include breakpoint-min (xxl) {
-    padding: 0 120px;
+    padding: 0 container-padding(xxl);
   }
 }
