@@ -77,6 +77,10 @@ ul {
   );
 }
 
+.column {
+  display: inline-block;
+}
+
 .container {
   display: block;
   margin: 0 auto;
@@ -98,4 +102,8 @@ ul {
   @include breakpoint-min (xxl) {
     padding: 0 container-padding(xxl);
   }
+}
+
+@function negative ($number) {
+  @return calc($number * -1);
 }

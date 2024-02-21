@@ -5,7 +5,7 @@ import bg from './../assets/bg.jpg';
 
 export default function Introduction () {
   return (
-    <div className={style.intro}>
+    <div id={style['intro']}>
       <div
         className={style.background}
         style={{ backgroundImage: `url(${bg})` }} />

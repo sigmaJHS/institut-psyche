@@ -2,7 +2,7 @@
 @import './../style/fonts.scss';
 @import './../style/breakpoints.scss';
 
-.intro {
+#intro {
   position: relative;
 
   @media (orientation: portrait) {
@@ -105,17 +105,10 @@
         
         .quote {
           text-align: left;
-          font-size: 16px;
+          font-size: 18px;
+          padding-bottom: 10px;
 
           @include breakpoint-min (xs) {
-            font-size: 18px;
-          }
-
-          @include breakpoint-min (sm) {
-            font-size: 21px;
-          }
-
-          @include breakpoint-min (md) {
             font-size: 24px;
           }
 
@@ -127,17 +120,9 @@
         .author {
           text-align: right;
           margin-top: 5px;
-          font-size: 12px;
+          font-size: 14px;
 
           @include breakpoint-min (xs) {
-            font-size: 14px;
-          }
-
-          @include breakpoint-min (sm) {
-            font-size: 16px;
-          }
-
-          @include breakpoint-min (md) {
             font-size: 18px;
           }
 
@@ -164,7 +149,7 @@
 
         button {
           cursor: pointer;
-          font-size: 11px;
+          font-size: 12px;
           color: $white;
           text-transform: uppercase;
           padding: 10px 0;
@@ -194,6 +179,7 @@
 
           @include breakpoint-min (xs) {
             padding: 10px 15px;
+            font-size: 14px;
             
             &.learn,
             &.contact {
@@ -207,12 +193,10 @@
 
           @include breakpoint-min (sm) {
             padding: 10px 25px;
-            font-size: 12px;
           }
 
           @include breakpoint-min (md) {
             padding: 12px 30px;
-            font-size: 14px;
           }
 
           @include breakpoint-min (lg) {

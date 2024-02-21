@@ -1,0 +1,175 @@
+@import './../style/main.scss';
+@import './../style/colors.scss';
+@import './../style/fonts.scss';
+@import './../style/breakpoints.scss';
+
+.title {
+  font-size: 18px;
+  text-transform: capitalize;
+      
+  @include breakpoint-min (md) {
+    font-size: 16px;
+  }
+}
+
+.paragraph {
+  font-size: 18px;
+      
+  @include breakpoint-min (md) {
+    font-size: 16px;
+  }
+}
+
+#owner {
+  position: relative;
+
+  .psyche {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-position: center left;
+    background-size: 80%;
+    background-repeat: no-repeat;
+    z-index: -1;
+    opacity: .05;
+
+    @include breakpoint-min (sm) {
+      background-size: 50%;
+    }
+
+    @include breakpoint-min (md) {
+      background-size: 30%;
+    }
+
+    @include breakpoint-min (lg) {
+      background-size: 25%;
+    }
+
+    @include breakpoint-min (xl) {
+      background-size: 20%;
+    }
+
+    @include breakpoint-min (xxl) {
+      background-size: 15%;
+    }
+  }
+
+  [class="container"] {
+    display: flex;
+    flex-direction: column;
+
+    @include breakpoint-min (md) {
+      flex-direction: row;
+    }
+
+    .left {
+      width: 100%;
+      order: 2;
+      
+      @include breakpoint-min (md) {
+        width: 65%;
+        order: 1;
+        vertical-align: top;
+        padding-right: 30px;
+      }
+    }
+
+    .right {
+      width: 100%;
+      order: 1;
+
+      @include breakpoint-min (md) {
+        width: 35%;
+        order: 2;
+        vertical-align: top;
+      }
+
+      .image-holder {
+        width: 100%;
+        height: 200px;
+        margin-top: -50px;
+
+        @include breakpoint-min (xs) {
+          height: 250px;
+        }
+
+        @include breakpoint-min (md) {
+          height: 450px;
+          margin-top: -50px;
+        }
+
+        @include breakpoint-min (lg) {
+          height: 500px;
+          margin-top: -100px;
+        }
+      }
+    }
+  }
+}
+
+#freud {
+  position: relative;
+
+  .freud {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-position: top center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: .1;
+    z-index: -1;
+
+    @include breakpoint-min (sm) {
+      background-size: contain;
+      background-position: top left;
+    }
+
+    @include breakpoint-min (lg) {
+      opacity: .8;
+    }
+  }
+
+  .about-text {
+    padding: 50px 0;
+    position: relative;
+
+    @include breakpoint-min (md) {
+      margin-left: 30%;
+      width: 70%;
+    }
+
+    @include breakpoint-min (xl) {
+      margin-left: 20%;
+      width: 80%;
+    }
+
+    @include breakpoint-min (xxl) {
+      margin-left: 15%;
+      width: 85%;
+    }
+    
+    .psychology-symbol {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-position: center right;
+      background-size: 40%;
+      background-repeat: no-repeat;
+      z-index: -1;
+      opacity: .05;
+
+      @include breakpoint-max (md) {
+        display: none;
+      }
+
+      @include breakpoint-min (xl) {
+        background-size: 25%;
+      }
+
+      @include breakpoint-min (xxl) {
+        background-size: 20%;
+      }
+    }
+  }
+}
