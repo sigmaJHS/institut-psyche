@@ -20,7 +20,7 @@ export default function Publications () {
                 key={publication}
                 className={ style['card'] }
               >
-                <NavLink to='/'>
+                <NavLink to='/publicacao'>
                   <Image
                     className={style['image']}
                     src={freud}
@@ -32,7 +32,7 @@ export default function Publications () {
                     <div className={ style['title'] }>O que é Psicanálise?</div>
                     <div className={ style['date'] }>10/05/2023</div>
                     {
-                      publication == 1 &&
+                      publication === 1 &&
                       <div className={style['highlight']}>
                         <FaStar /> Destaque
                       </div>

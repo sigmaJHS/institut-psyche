@@ -6,7 +6,7 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Notification from './components/Notification'
 
-import { navigableRoutes } from './const/routes'
+import { allRoutes } from './const/routes'
 
 function App() {
   
@@ -51,7 +51,7 @@ function App() {
         <Navbar />
         <Routes>
           {
-            navigableRoutes.map(
+            allRoutes.map(
               function (route, key) {
                 return (
                   <Route
