@@ -1,15 +1,49 @@
-import Card from './../components/Card';
+import { NavLink } from 'react-router-dom'
+import { FaStar } from 'react-icons/fa'
+import Image from './../components/Image';
+
+
+import freud from './../assets/sigmund-freud-1153858_640.jpg'
+import style from './Publications.module.scss'
+
+const publications = [1,2,3,4,5,6,7,8,9];
 
 export default function Publications () {
   return (
     <div className='container'>
       <h1>Publicações</h1>
-      <Card
-        title='O que é Psicanálise?'
-        date='05/10/2023'
-        description='A Psicanálise, fundada pelo médico neurologista Sigmund Freud, hoje é difundida mundialmente. Entretanto, muitas pessoas ainda confundem o que é Psicanálise e o que não é. Por isso, preparamos este texto para que possa ser entendido melhor o significado desse termo.'
-        link='/'
-      />
+      {
+        publications.map(
+          function (publication) {
+            return (
+              <div
+                key={publication}
+                className={ style['card'] }
+              >
+                <NavLink to='/'>
+                  <Image
+                    className={style['image']}
+                    src={freud}
+                    alt='Sigmund Freud'
+                    v-align='center'
+                    h-align='center'
+                  />
+                  <div className={style['text']}>
+                    <div className={ style['title'] }>O que é Psicanálise?</div>
+                    <div className={ style['date'] }>10/05/2023</div>
+                    {
+                      publication == 1 &&
+                      <div className={style['highlight']}>
+                        <FaStar /> Destaque
+                      </div>
+                    }
+                  </div>
+                </NavLink>
+              </div>
+            );
+          }
+        )
+      }
     </div>
   );
 }
