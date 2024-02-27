@@ -3,6 +3,8 @@
 # design files
 /design
 
+#client ignores
+
 # dependencies
 /client/node_modules
 /client/.pnp
@@ -24,3 +26,17 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# server ignores
+/server/node_modules
+/server/public/hot
+/server/public/storage
+/server/storage/*.key
+/server/vendor
+.env
+.env.backup
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
