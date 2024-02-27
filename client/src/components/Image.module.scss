@@ -4,7 +4,18 @@
   overflow: hidden;
 
   img {
-    margin-left: 50%;
-    transform: translateX(-50%);
+    &[h-align="center"] {
+      margin-left: 50%;
+      transform: translateX(-50%);
+    }
+
+    &[v-align="center"] {
+      margin-top: 50%;
+      transform: translateY(-50%);
+    }
+
+    &[h-align="center"][v-align="center"] {
+      transform: translate(-50%, -50%);
+    }
   }
 }

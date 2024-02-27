@@ -32,6 +32,7 @@ export default function Resume () {
               <Image
                 src={owner}
                 alt='Prof. Dr. Marcelo Lopes Rodrigues'
+                h-align='center'
               />
             </div>
           </div>

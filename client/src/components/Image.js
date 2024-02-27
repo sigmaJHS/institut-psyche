@@ -4,6 +4,7 @@ import style from './Image.module.scss'
 
 export default function Image ( props ) {
   const imgRef = useRef();
+  const frameRef = useRef();
 
   const [imgSize, setImgSize] = useState (
     {
@@ -16,7 +17,7 @@ export default function Image ( props ) {
     function () {
       async function getDimensions() {
         let dimensions = await getImageSize(props.src);
-
+        
         setImgSize(
           (dimensions.width > dimensions.height)
           ? { width: 'auto', height: '100%' }
@@ -30,12 +31,17 @@ export default function Image ( props ) {
   )
 
   return (
-    <div className={style['frame']}>
+    <div
+      className={`${style['frame']} ${props.className}`}
+      ref={frameRef}
+    >
       <img
         src={props.src}
         alt={props.alt}
         ref={imgRef}
         style={imgSize}
+        v-align={props['v-align'] ?? null}
+        h-align={props['h-align'] ?? null}
       />
     </div>
   )
