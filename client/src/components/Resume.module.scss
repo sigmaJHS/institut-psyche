@@ -3,23 +3,6 @@
 @import './../style/fonts.scss';
 @import './../style/breakpoints.scss';
 
-.title {
-  font-size: 18px;
-  text-transform: capitalize;
-      
-  @include breakpoint-min (md) {
-    font-size: 16px;
-  }
-}
-
-.paragraph {
-  font-size: 18px;
-      
-  @include breakpoint-min (md) {
-    font-size: 16px;
-  }
-}
-
 #owner {
   position: relative;
 
