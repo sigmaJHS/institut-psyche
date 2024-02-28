@@ -15,17 +15,19 @@ export default function Image ( props ) {
 
   useEffect(
     function () {
-      async function getDimensions() {
-        let dimensions = await getImageSize(props.src);
-        
-        setImgSize(
-          (dimensions.width > dimensions.height)
-          ? { width: 'auto', height: '100%' }
-          : { width: '100%', height: 'auto' }
-        );
+      if(props.src !== undefined) {
+        async function getDimensions() {
+          let dimensions = await getImageSize(props.src);
+          
+          setImgSize(
+            (dimensions.width > dimensions.height)
+            ? { width: 'auto', height: '100%' }
+            : { width: '100%', height: 'auto' }
+          );
+        }
+  
+        getDimensions();
       }
-
-      getDimensions();
     },
     [props.src]
   )
