@@ -15,7 +15,7 @@ export default function Publication () {
 
   useEffect(
     function () {
-      axios.get('http://127.0.0.1:8000/api/publication/' + searchParameters.get('text_code'))
+      axios.get(process.env.REACT_APP_BACKEND_SERVER + '/publication/' + searchParameters.get('text_code'))
       .then(
         function (response) {
           setPublication(response.data);
