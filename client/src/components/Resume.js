@@ -1,5 +1,6 @@
 import Image from './../components/Image.js'
 import Button from './../components/Button.js'
+import GoogleMap from './../components/GoogleMap';
 
 import owner from './../assets/marcelo-lopes-psicanalista.jpg'
 import freud from './../assets/sigmund-freud.png'
@@ -59,6 +60,9 @@ export default function Resume () {
             <Button>Continuar lendo</Button>
           </div>
         </div>
+      </section>
+      <section id={style['map']}>
+        <GoogleMap className={style['google_map']} />
       </section>
     </div>
   );

@@ -156,3 +156,17 @@
     }
   }
 }
+
+#map {
+  font-size: 0;
+
+  .google_map {
+    border: none;
+    width: 100%;
+    height: 300px;
+
+    @include breakpoint-min (lg) {
+      height: 350px;
+    }
+  }
+}
