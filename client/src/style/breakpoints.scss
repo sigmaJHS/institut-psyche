@@ -1,3 +1,6 @@
+//  breakpoint for the transition between mobile and desktop versions of the navbar
+$layout-breaking-point: md;
+
 @function breakpoint-width($name) {
   @return map-get(
     (

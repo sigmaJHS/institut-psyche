@@ -1,15 +1,13 @@
 @import './../style/colors.scss';
 @import './../style/breakpoints.scss';
 
-$breakpoint: md;
-
 .contact-inner {
   width: 100%;
   display: flex;
   flex-direction: column;
   margin-bottom: 50px;
 
-  @include breakpoint-min($breakpoint) {
+  @include breakpoint-min($layout-breaking-point) {
     flex-direction: row;
     align-items: flex-start;
     background: $white;
@@ -21,13 +19,13 @@ $breakpoint: md;
     flex-direction: column;
     align-items: center;
 
-    @include breakpoint-min($breakpoint) {
+    @include breakpoint-min($layout-breaking-point) {
       width: 50%;
       padding: 15px 30px;
     }
 
     &.form-section {
-      @include breakpoint-max($breakpoint) {
+      @include breakpoint-max($layout-breaking-point) {
         margin-top: 40px;
       }
     }
