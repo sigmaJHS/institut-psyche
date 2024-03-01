@@ -1,7 +1,8 @@
+import { FaCaretDown } from 'react-icons/fa'
 import { NavLink } from 'react-router-dom';
 import { FaEnvelope, FaPhoneAlt, FaWhatsapp, FaRegCopy } from 'react-icons/fa'
 
-import { useState, useEffect, useContext } from 'react'
+import { useState, useEffect, useContext, useRef } from 'react'
 import { NotificationContext } from './../contexts/NotificationContext'
 
 import style from './Navbar.module.scss'
@@ -12,6 +13,18 @@ import { navigableRoutes } from './../const/routes'
 export default function Navbar(props){
   const triggerNotification = useContext(NotificationContext);
   const [isExpanded, setIsExpanded] = useState(false);
+  const dropdownToggle = useRef();
+
+  function handleFocus (event) {
+    if(document.activeElement === dropdownToggle.current) {
+      setTimeout(
+        function () {
+          dropdownToggle.current.blur();
+        },
+        500
+      )
+    }
+  }
 
   useEffect(
     function () {
@@ -59,14 +72,54 @@ export default function Navbar(props){
             <ul className={style['navigation']}>
               {
                 navigableRoutes.map(
-                  function (route, key) {
-                    return (
-                      <li key={key} className={style['nav-item']}>
-                        <NavLink to={route.path} onClick={() => {setIsExpanded(false)}}>
-                          {route.name}
-                        </NavLink>
-                      </li>
-                    );
+                  function (route) {
+                    if(Object.hasOwn(route, 'children')) {
+                      return (
+                        <li
+                          key={route.id}
+                          className={`${style['nav-item']} ${style['dropdown-toggle']}`}
+                          tabIndex='-1'
+                          onMouseDown={handleFocus}
+                          ref={dropdownToggle}
+                        >
+                          <div className={style['text']}>
+                            {route.name}
+                            <FaCaretDown className={style['dropdown-icon']} />
+                          </div>
+                          <ul className={style['dropdown-menu']}>
+                            {
+                              route.children.map(
+                                function(childRoute) {
+                                  return (
+                                    <li
+                                      key={childRoute.id}
+                                      className={style['dropdown-item']}
+                                    >
+                                      <NavLink to={childRoute.path} onClick={() => {setIsExpanded(false)}}>
+                                        {childRoute.name}
+                                      </NavLink>
+                                    </li>
+                                  )
+                                }
+                              )
+                            }
+                          </ul>
+                        </li>
+                      );
+                    }else{
+                      return (
+                        <li
+                          key={route.id}
+                          className={style['nav-item']}
+                        >
+                          <NavLink to={route.path} onClick={() => {setIsExpanded(false)}}>
+                            <div className={style['text']}>
+                              {route.name}
+                            </div>
+                          </NavLink>
+                        </li>
+                      );
+                    }
                   }
                 )
               }

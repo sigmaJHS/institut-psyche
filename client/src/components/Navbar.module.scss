@@ -143,7 +143,6 @@ $breakpoint: md;
           font-size: 16px;
       
           @include breakpoint-max ($breakpoint) {
-            padding: 10px 0;
             width: 100%;
             text-align: center;
             border-bottom: 1px solid $low-emphasys-text;
@@ -162,9 +161,18 @@ $breakpoint: md;
               margin-left: 25px;
             }
           }
+
+          .text {
+            @include breakpoint-max ($breakpoint) {
+              padding: 15px 0;
+            }
+          }
       
-          a {
+          a,
+          &.dropdown-toggle {
+            position: relative;
             text-decoration: none;
+            cursor: pointer;
       
             &[class="active"] {
               font-weight: bold;
@@ -184,6 +192,65 @@ $breakpoint: md;
               &:focus {
                 color: $high-emphasys-text;
                 text-decoration: underline;
+              }
+            }
+          }
+
+          &.dropdown-toggle {
+            .dropdown-icon {
+              padding-left: 4px;
+              margin-bottom: -1px;
+              font-size: 12px;
+            }
+
+            .dropdown-menu {
+              transform: scaleY(0);
+              height: 0;
+              transform-origin: top;
+              transition: .4s;
+              
+              @include breakpoint-min ($breakpoint) {
+                position: absolute;
+                top: 100%;
+                right: 0;
+                background-color: $white;
+                box-shadow: 0px 4px 4px -2px;
+                z-index: 1;
+                border-radius: 2px;;
+              }
+
+              .dropdown-item {
+                padding: 15px 0;
+                border-top: 1px solid $darker-gray;
+
+                @include breakpoint-min ($breakpoint) {
+                  padding: 15px;
+                  border: none;
+                  text-align: right;
+                  white-space: nowrap;
+                }
+                
+                a {
+                  color: $darker-gray;
+
+                  @include breakpoint-min ($breakpoint) {
+                    // color: $low-emphasys-text;
+                    // padding: 5px 0;
+                    font-size: 12px;
+                  }
+                }
+              }
+            }
+
+            &:focus,
+            &:hover {
+              .dropdown-menu {
+                height: 100px;
+                transform: scaleY(1);
+
+                @include breakpoint-min ($breakpoint) {
+                  height: 96px;
+                }
               }
             }
           }

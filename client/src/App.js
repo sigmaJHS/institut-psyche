@@ -52,14 +52,26 @@ function App() {
         <Routes>
           {
             allRoutes.map(
-              function (route, key) {
-                return (
+              function (route) {
+                return (Object.hasOwn(route, 'children'))
+                ? route.children.map(
+                    function (childRoute, childKey) {
+                      return (
+                        <Route
+                          key={childRoute.id}
+                          path={childRoute.path}
+                          element={ <childRoute.view /> }
+                        />
+                      );
+                    }
+                  )
+                : (
                   <Route
-                    key={key}
+                    key={route.id}
                     path={route.path}
                     element={ <route.view /> }
                   />
-                );
+                )
               }
             )
           }
