@@ -1,3 +1,4 @@
+@import './../style/main.scss';
 @import './../style/colors.scss';
 @import './../style/fonts.scss';
 @import './../style/breakpoints.scss';
@@ -209,6 +210,64 @@
           }
         }
       }
+    }
+  }
+}
+
+#freud {
+  position: relative;
+
+  .freud {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-position: top center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: .1;
+    z-index: -1;
+
+    @include breakpoint-min (sm) {
+      background-size: contain;
+      background-position: top left;
+    }
+
+    @include breakpoint-min (lg) {
+      opacity: .8;
+    }
+  }
+
+  .about-text {
+    padding: 50px 0;
+    position: relative;
+
+    @include breakpoint-min (md) {
+      margin-left: 30%;
+      width: 70%;
+    }
+
+    @include breakpoint-min (xl) {
+      margin-left: 20%;
+      width: 80%;
+    }
+
+    @include breakpoint-min (xxl) {
+      margin-left: 15%;
+      width: 85%;
+    }
+  }
+}
+
+#map {
+  font-size: 0;
+
+  .google_map {
+    border: none;
+    width: 100%;
+    height: 300px;
+
+    @include breakpoint-min (lg) {
+      height: 350px;
     }
   }
 }
