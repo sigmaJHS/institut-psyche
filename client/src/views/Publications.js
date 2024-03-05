@@ -3,17 +3,21 @@ import { useState, useEffect } from "react";
 import { NavLink } from 'react-router-dom'
 import { FaStar } from 'react-icons/fa'
 
+import loader from './../assets/loader.svg'
 import Image from './../components/Image';
 import style from './Publications.module.scss'
 
 export default function Publications () {
   const [publications, setPublications] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(
     function () {
+      setIsLoading(true);
       axios.get(process.env.REACT_APP_BACKEND_SERVER + '/publications')
       .then(
         function (response) {
+          setIsLoading(false);
           console.log(response);
           setPublications(response.data);
         }
@@ -25,6 +29,12 @@ export default function Publications () {
   return (
     <div className='container'>
       <h1>Publicações</h1>
+      <img
+        className={style['loading']}
+        src={loader}
+        alt='Carregando...'
+        loading={(isLoading) ? 'true' : 'false'}
+      />
       {
         publications.map(
           function (publication) {
