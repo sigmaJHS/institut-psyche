@@ -4,8 +4,8 @@ import Publications from './../views/Publications'
 import Publication from './../views/Publication'
 import Contact from './../views/Contact'
 
-import FormacaoEmPsicanalise from './../views/FormacaoEmPsicanalise'
-import Projeto8Semanas from './../views/Projeto8Semanas'
+import FormacaoEmPsicanalise from './../views/courses/FormacaoEmPsicanalise'
+import Projeto8Semanas from './../views/courses/Projeto8Semanas'
   
 export const navigableRoutes = [
   {

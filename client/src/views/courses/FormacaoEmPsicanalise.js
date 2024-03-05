@@ -1,5 +1,5 @@
 export default function FormacaoEmPsicanalise () {
   return (
-    <div>Formacao Em Psicanalise</div>
+    <div>Formação Em Psicanálise</div>
   );
 }
