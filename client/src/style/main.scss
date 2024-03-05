@@ -63,6 +63,22 @@ ul {
   list-style: none;
 }
 
+.column {
+  display: inline-block;
+}
+  
+.desktop {
+  @include breakpoint-max ($layout-breaking-point) {
+    display: none;
+  }
+}
+
+.mobile {
+  @include breakpoint-min ($layout-breaking-point) {
+    display: none;
+  }
+}
+
 @function container-padding($name) {
   @return map-get(
     (
@@ -75,10 +91,6 @@ ul {
     ),
     $name
   );
-}
-
-.column {
-  display: inline-block;
 }
 
 .container {
