@@ -96,13 +96,21 @@
         text-align: center;
         border-radius: 4px;
         margin-bottom: 10px;
+        cursor: pointer;
+        transition: .2s;
   
         &.sympla {
           background-color: #0097FF;
+          border: 1px solid #0097FF;
         }
   
         &.hotmart {
           background-color: #EF4E22;
+          border: 1px solid #EF4E22;
+        }
+
+        &:hover {
+          opacity: .6;
         }
   
         img {
