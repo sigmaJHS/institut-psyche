@@ -1,0 +1,73 @@
+@import '@/style/colors.scss';
+@import '@/style/breakpoints.scss';
+
+.contact-info-mobile {
+  text-align: center;
+  display: block;
+  position: fixed;
+  bottom: 15px;
+  right: 30px;
+  left: 30px;
+  height: 60px;
+  padding-top: 15px;
+  background-color: inherit;
+
+  @include breakpoint-min ($layout-breaking-point) {
+    display: none;
+  }
+
+  .contact-text {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 16px;
+    color: $high-emphasys-text;
+  }
+
+  .buttons {
+    display: block;
+
+    .contact-button {
+      display: inline-block;
+      border: 2px solid $primary;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.1s;
+      height: 30px;
+      width: 30px;
+
+      &:not(:first-child) {
+        margin-left: 15px;
+      }
+  
+      &.regular {
+        background-color: $primary;
+        color: $white;
+    
+        &:hover,
+        &:focus {
+          background-color: transparent;
+          color: $low-emphasys-text;
+        }
+      }
+    
+      &.altered {
+        background-color: transparent;
+        color: $low-emphasys-text;
+    
+        &:hover,
+        &:focus {
+          background-color: $primary;
+          color: $white;
+        }
+      }
+
+      .icon {
+        height: 100%;
+
+        @include breakpoint-max ($layout-breaking-point) {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}

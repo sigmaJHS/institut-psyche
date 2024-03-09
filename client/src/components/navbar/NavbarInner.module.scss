@@ -1,0 +1,40 @@
+@import '@/style/colors.scss';
+@import '@/style/breakpoints.scss';
+
+.navbar-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu {
+  @include breakpoint-max($layout-breaking-point) {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 30px;
+    margin: 0;
+    transition: 0.2s;
+    background: $darker-white;
+    z-index: -1;
+    opacity: 0;
+    
+    &[expanded="true"] {
+      z-index: 2;
+      opacity: 1;
+      transition: 0.8s;
+    }
+  }
+    
+  @include breakpoint-min ($layout-breaking-point) {
+    display: inline-block;
+  }
+}

@@ -1,0 +1,101 @@
+@import '@/style/colors.scss';
+@import '@/style/breakpoints.scss';
+
+.nav-item {
+  font-size: 16px;
+
+  @include breakpoint-max ($layout-breaking-point) {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid $low-emphasys-text;
+  }
+
+  @include breakpoint-min ($layout-breaking-point) {
+    display: inline-block;
+
+    &:not(first-of-type) {
+      margin-left: 18px;
+    }
+  }
+
+  @include breakpoint-min (lg) {
+    &:not(first-of-type) {
+      margin-left: 25px;
+    }
+  }
+
+  a,
+  &.dropdown-toggle {
+    position: relative;
+    cursor: pointer;
+    text-decoration: none;
+
+    @include breakpoint-max ($layout-breaking-point) {
+      color: $low-emphasys-text;
+      font-size: 16px;
+    }
+    
+    @include breakpoint-min ($layout-breaking-point) {
+      color: $low-emphasys-text;
+      font-size: 14px;
+    }
+  }
+
+  &.dropdown-toggle {
+    .dropdown-icon {
+      padding-left: 4px;
+      margin-bottom: -1px;
+      font-size: 12px;
+    }
+
+    .dropdown-menu {
+      transform: scaleY(0);
+      height: 0;
+      transform-origin: top;
+      transition: .4s;
+      
+      @include breakpoint-min ($layout-breaking-point) {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: $white;
+        box-shadow: 0px 4px 4px -2px;
+        z-index: 1;
+        border-radius: 2px;
+        padding: 15px 0;
+      }
+
+      .dropdown-item {
+        padding: 15px 0;
+        border-top: 1px solid $darker-gray;
+
+        @include breakpoint-min ($layout-breaking-point) {
+          padding: 15px;
+          border: none;
+          text-align: right;
+          white-space: nowrap;
+        }
+        
+        a {
+          color: $darker-gray;
+
+          @include breakpoint-min ($layout-breaking-point) {
+            font-size: 12px;
+          }
+        }
+      }
+    }
+
+    &:focus,
+    &:hover {
+      .dropdown-menu {
+        height: 100px;
+        transform: scaleY(1);
+
+        @include breakpoint-min ($layout-breaking-point) {
+          height: 96px;
+        }
+      }
+    }
+  }
+}

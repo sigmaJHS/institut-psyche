@@ -1,0 +1,73 @@
+@import '@/style/colors.scss';
+@import '@/style/breakpoints.scss';
+
+.contact-info-desktop {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: $primary;
+  padding: 5px 0px 5px 100px;
+  border-bottom-left-radius: 30px;
+
+  @include breakpoint-max ($layout-breaking-point) {
+    display: none;
+  }
+
+  @include breakpoint-min (lg) {
+    padding-left: 150px;
+  }
+
+  @include breakpoint-min (xl) {
+    padding-left: 250px;
+  }
+
+  @include breakpoint-min (xl) {
+    padding-left: 400px;
+  }
+
+  ul {
+    margin-right: container-padding(sm);
+
+    @include breakpoint-min (md) {
+      margin-right: container-padding(md);
+    }
+
+    @include breakpoint-min (lg) {
+      margin-right: container-padding(lg);
+    }
+
+    @include breakpoint-min (xl) {
+      margin-right: container-padding(xl);
+    }
+
+    @include breakpoint-min (xxl) {
+      margin-right: container-padding(xxl);
+    }
+
+    li {
+      display: inline-block;
+      color: $white;
+
+      &:not(:first-of-type) {
+        margin-left: 20px;
+      }
+
+      .icon {
+        vertical-align: middle;
+        margin-right: 5px;
+        font-size: 14px;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+        font-size: 12px;
+
+        &:hover,
+        &:focus {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

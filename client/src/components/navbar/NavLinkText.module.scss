@@ -1,0 +1,21 @@
+@import '@/style/colors.scss';
+@import '@/style/breakpoints.scss';
+
+.text {
+  font-size: inherit;
+  color: inherit;
+
+  &[active="true"]{
+    font-weight: bold;
+  }
+
+  &:hover,
+  &:focus,
+  &[active="true"] {
+    text-decoration: underline;
+  }
+
+  @include breakpoint-max ($layout-breaking-point) {
+    padding: 15px 0;
+  }
+}

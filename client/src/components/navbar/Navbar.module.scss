@@ -1,0 +1,13 @@
+@import '@/style/colors.scss';
+@import '@/style/breakpoints.scss';
+
+.navbar {
+  width: 100%;
+  height: 80px;
+  position: relative;
+  background: $white;
+
+  @include breakpoint-min(xs) {
+    height: 100px;
+  }
+}

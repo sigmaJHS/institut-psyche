@@ -1,0 +1,24 @@
+@import '@/style/colors.scss';
+@import '@/style/breakpoints.scss';
+
+.navigation {
+  @include breakpoint-max ($layout-breaking-point) {
+    width: 100%;
+    margin-top: 80px;
+    margin-bottom: 90px;
+    
+    @include breakpoint-min(xs) {
+      margin-top: 100px;
+    }
+
+    @media (orientation: landscape) {
+      overflow-y: scroll;
+    }
+  }
+  
+  @include breakpoint-min ($layout-breaking-point) {
+    display: inline-block;
+    margin-top: 20px;
+    vertical-align: middle;
+  }
+}

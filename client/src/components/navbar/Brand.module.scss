@@ -1,0 +1,29 @@
+@import '@/style/breakpoints.scss';
+
+.brand {
+  @include breakpoint-max (md) {
+    &[expanded="true"] {
+      z-index: 3;
+    }
+  }
+
+  img {
+    width: 150px;
+  
+    @include breakpoint-min(xs) {
+      width: 180px;
+    }
+  
+    @include breakpoint-min(md) {
+      width: 150px;
+    }
+  
+    @include breakpoint-min(lg) {
+      width: 180px;
+    }
+  
+    @include breakpoint-min(xl) {
+      width: 200px;
+    }
+  }
+}
