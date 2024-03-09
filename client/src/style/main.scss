@@ -79,20 +79,6 @@ ul {
   }
 }
 
-@function container-padding($name) {
-  @return map-get(
-    (
-      xs: 15px,
-      sm: 15px,
-      md: 30px,
-      lg: 60px,
-      xl: 90px,
-      xxl: 120px
-    ),
-    $name
-  );
-}
-
 .container {
   display: block;
   margin: 0 auto;
