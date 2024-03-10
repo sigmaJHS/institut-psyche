@@ -1,0 +1,58 @@
+@import '@/style/colors.scss';
+@import '@/style/breakpoints.scss';
+
+.form {
+  width: 100%;
+
+  .form-row {
+    width: 100%;
+    margin-top: 10px;
+
+    &.footer-row {
+      text-align: right;
+    }
+    
+    label {
+      text-transform: uppercase;
+      width: 100%;
+      font-size: 12px;
+      color: $low-emphasys-text;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      border: 1px solid $low-emphasys-text;
+      box-sizing: border-box;
+      font-size: 14px;
+      line-height: 30px;
+
+      &:focus {
+        border: 1px solid $high-emphasys-text;
+      }
+    }
+    
+    button {
+      text-transform: uppercase;
+      width: 100%;
+      line-height: 30px;
+      background: $primary;
+      color: $white;
+      border: 2px solid $primary;
+      box-sizing: border-box;
+      cursor: pointer;
+      transition: 0.2s;
+
+      &:hover,
+      &:focus {
+        background: transparent;
+        color: $high-emphasys-text;
+      }
+
+      @include breakpoint-min (md) {
+        width: auto;
+        padding: 0 40px;
+      }
+    }
+  }
+}
