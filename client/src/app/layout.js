@@ -4,6 +4,7 @@ import "@/style/main.scss";
 const inter = Inter({ subsets: ["latin"] });
 
 import Navbar from '@/components/navbar/Navbar'
+import Footer from '@/components/Footer'
 
 export const metadata = {
   title: "Create Next App",
@@ -16,6 +17,7 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );

@@ -1,0 +1,69 @@
+@import '@/style/colors.scss';
+@import '@/style/breakpoints.scss';
+
+.footer {
+  // margin-top: 50px;
+
+  .footer-inner {
+    background-color: $secondary;
+    padding: 15px 0;
+
+    @include breakpoint-min (md) {
+      padding: 40px 0;
+    }
+
+    [class="container"] {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      @include breakpoint-min (md) {
+        flex-direction: row;
+        justify-content: space-around;
+      }
+
+      .brand {
+        img {
+          width: 200px;
+          margin-bottom: 20px;
+
+          @include breakpoint-min (md) {
+            width: 250px;
+            margin-bottom: 0;
+          }
+        }
+      }
+
+      .separator {
+        width: 1px;
+        height: 200px;
+        background: $white;
+
+        @include breakpoint-max (md) {
+          display: none;
+        }
+      }
+
+      .links {
+        margin-top: 10px;
+      }
+    }
+  }
+  .footer-bottom {
+    background-color: $darker-secondary;
+    color: $white;
+    text-align: center;
+    font-size: 14px;
+    padding: 20px 0;
+
+    a{
+      text-decoration: underline;
+      color: $primary;
+
+      &:hover,
+      &:focus {
+        text-decoration: none;
+      }
+    }
+  }
+}
