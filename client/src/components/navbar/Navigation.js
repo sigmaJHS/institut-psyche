@@ -8,12 +8,14 @@ export default function Navigation (props) {
     <ul className={style['navigation']}>
       <NavLink
         href={'/'}
+        exactMatch={ true }
         onClick={props.onNav}
       >
         Home
       </NavLink>
       <NavLink
         href={'/sobre'}
+        exactMatch={ true }
         onClick={props.onNav}
       >
         Sobre
@@ -30,6 +32,7 @@ export default function Navigation (props) {
       >
         <NavLink
           href={'/cursos/formacao-em-psicanalise'}
+          exactMatch={ true }
           onClick={props.onNav}
           isDropdown={true}
         >
@@ -37,6 +40,7 @@ export default function Navigation (props) {
         </NavLink>
         <NavLink
           href={'/cursos/projeto-8-semanas'}
+          exactMatch={ true }
           onClick={props.onNav}
           isDropdown={true}
         >
@@ -45,6 +49,7 @@ export default function Navigation (props) {
       </DropdownNavLink>
       <NavLink
         href={'/contato'}
+        exactMatch={ true }
         onClick={props.onNav}
       >
         Contato
