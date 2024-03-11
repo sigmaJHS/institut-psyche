@@ -29,14 +29,14 @@ export default function Navigation (props) {
         href={'/cursos'}
       >
         <NavLink
-          href={'/cursos/formacao_em_psicanalise'}
+          href={'/cursos/formacao-em-psicanalise'}
           onClick={props.onNav}
           isDropdown={true}
         >
           Formação em Psicanálise
         </NavLink>
         <NavLink
-          href={'/cursos/projeto_8_semanas'}
+          href={'/cursos/projeto-8-semanas'}
           onClick={props.onNav}
           isDropdown={true}
         >
