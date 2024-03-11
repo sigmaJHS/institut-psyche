@@ -26,6 +26,21 @@ export default async function Publications () {
           </div>
         </Link>
       </div>
+      <div className={ style['card'] }>
+        <Link href={ '/publicacoes/quem-deve-fazer-terapia' }>
+          <Image
+            src={ 'lacan.jpg' }
+            alt={ 'Quem deve fazer terapia' }
+            className={style['image']}
+            v-align='center'
+            h-align='center'
+          />
+          <div className={style['text']}>
+            <div className={ style['title'] }>{ 'Quem deve fazer terapia' }</div>
+            <div className={ style['date'] }>{ '29/02/2024' }</div>
+          </div>
+        </Link>
+      </div>
     </div>
   );
 }
