@@ -4,13 +4,15 @@
   overflow: hidden;
 
   img {
+    position: relative;
+
     &[h-align="center"] {
-      margin-left: 50%;
+      left: 50%;
       transform: translateX(-50%);
     }
 
     &[v-align="center"] {
-      margin-top: 50%;
+      top: 50%;
       transform: translateY(-50%);
     }
 
