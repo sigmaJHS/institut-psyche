@@ -1,19 +1,17 @@
 'use client'
 
-import { useState, useEffect, useContext } from 'react'
+import { useState, useEffect } from 'react'
 
 import Brand from './Brand'
 import Toggler from './Toggler'
 import Navigation from './Navigation'
 import ContactInfoDesktop from './ContactInfoDesktop'
 import ContactInfoMobile from './ContactInfoMobile'
-// import { NotificationContext } from '@/contexts/NotificationContext'
 
 import style from './NavbarInner.module.scss'
 
-export default function NavbarInner (props) {
+export default function NavbarInner () {
   const [isExpanded, setIsExpanded] = useState(false);
-  // const triggerNotification = useContext(NotificationContext);
 
   useEffect(
     function () {
@@ -22,14 +20,6 @@ export default function NavbarInner (props) {
     },
     [isExpanded]
   );
-
-  function copyToClipboard (event) {
-    window.navigator.clipboard.writeText(
-      event.currentTarget.getAttribute('data-copy')
-    );
-    
-    // triggerNotification ('success', 'Copiado.');
-  }
 
   return (
     <div className={style['navbar-inner']}>
@@ -49,9 +39,7 @@ export default function NavbarInner (props) {
           onNav={() => setIsExpanded(false)}
         />
         <ContactInfoDesktop />
-        <ContactInfoMobile
-          copyToClipboard={copyToClipboard}
-        />
+        <ContactInfoMobile />
       </div>
     </div>
   )

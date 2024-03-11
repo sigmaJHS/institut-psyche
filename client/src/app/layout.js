@@ -2,6 +2,9 @@ import "@/style/main.scss";
 
 import Navbar from '@/components/navbar/Navbar'
 import Footer from '@/components/Footer'
+import Notification from '@/components/Notification'
+
+import { NotificationProvider } from '@/contexts/NotificationContext'
 
 export const metadata = {
   title: "Create Next App",
@@ -12,9 +15,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <Navbar />
-        {children}
-        <Footer />
+        <NotificationProvider>
+          <Notification />
+          <Navbar />
+          {children}
+          <Footer />
+        </NotificationProvider>
       </body>
     </html>
   );
